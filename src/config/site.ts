@@ -2,7 +2,7 @@ export const site = {
   name: 'Nexo Celer',
   title: 'Nexo Celer — Consultoría de software B2B',
   description:
-    'Consultoría de software para empresas que digitalizan procesos administrativos. Producto estrella: constanci.ar — constancias AFIP en lote desde Excel.',
+    'Consultoría de software para empresas que aceleran procesos administrativos en etapas de modernización e innovación con IA.',
   url: 'https://nexoceler.ar',
   locale: 'es_AR',
   email: 'mariano.argentato@gmail.com',
@@ -10,8 +10,9 @@ export const site = {
   product: {
     name: 'constanci.ar',
     url: 'https://constanci.ar/',
-    tagline:
-      'Automatización de constancias AFIP: subí un Excel con CUITs y descargá PDFs oficiales en lote.',
+    tagline: 'Automatización de constancias AFIP en lote, desde Excel hasta PDF.',
+    summary:
+      'Plataforma para descargar constancias AFIP masivamente. Uno de los productos que desarrollamos al resolver procesos reales con clientes.',
   },
 } as const;
 
@@ -20,8 +21,8 @@ export const productExternalUrl = site.product.url;
 
 export const navLinks = [
   { href: '#servicios', label: 'Servicios' },
-  { href: productExternalUrl, label: site.product.name, external: true },
   { href: '#clientes', label: 'Para quién' },
   { href: '#proceso', label: 'Cómo trabajamos' },
+  { href: '#productos', label: 'Productos' },
   { href: '#contacto', label: 'Contacto' },
 ] as const;

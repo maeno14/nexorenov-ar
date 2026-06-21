@@ -1,29 +1,22 @@
 ---
-import { site, productExternalUrl } from '../config/site';
+import { site } from '../config/site';
 ---
 
 <section class="section-pad">
   <div class="container-nexo">
     <div class="reveal max-w-4xl" style="--index: 0">
-      <span class="tag tag-blue">Consultoría B2B</span>
+      <span class="tag tag-blue">Consultoría de software · B2B</span>
       <h1 class="heading-display mt-6 text-4xl font-semibold sm:text-5xl lg:text-[3.25rem]">
-        Software y procesos para equipos que operan en volumen
+        Aceleramos procesos administrativos en la era de la modernización y la IA
       </h1>
       <p class="mt-6 max-w-2xl text-lg text-muted">
-        {site.name} acompaña a estudios contables y empresas que necesitan ordenar
-        operaciones administrativas, integrar sistemas y adoptar herramientas como{' '}
-        {site.product.name} sin sumar fricción al día a día.
+        {site.name} acompaña a empresas que necesitan ordenar operaciones, integrar
+        sistemas y adoptar innovación con criterio — con diagnóstico, implementación y
+        software a medida cuando hace falta.
       </p>
       <div class="mt-10 flex flex-wrap gap-3">
         <a href="#contacto" class="btn-primary"> Agendar consulta </a>
-        <a
-          href={productExternalUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-secondary"
-        >
-          Conocer {site.product.name}
-        </a>
+        <a href="#servicios" class="btn-secondary"> Ver servicios </a>
       </div>
     </div>
 
@@ -33,16 +26,16 @@ import { site, productExternalUrl } from '../config/site';
         <p class="mt-2 text-lg font-medium text-ink">Procesos admin.</p>
       </div>
       <div class="card card-hover p-6">
-        <p class="eyebrow">Sector</p>
-        <p class="mt-2 text-lg font-medium text-ink">Contable / fiscal</p>
+        <p class="eyebrow">Cliente</p>
+        <p class="mt-2 text-lg font-medium text-ink">Empresas B2B</p>
       </div>
       <div class="card card-hover p-6">
-        <p class="eyebrow">Producto</p>
-        <p class="mt-2 text-lg font-medium text-ink">{site.product.name}</p>
+        <p class="eyebrow">Momento</p>
+        <p class="mt-2 text-lg font-medium text-ink">Modernización</p>
       </div>
       <div class="card card-hover p-6">
-        <p class="eyebrow">Resultado</p>
-        <p class="mt-2 text-lg font-medium text-ink">Lotes AFIP</p>
+        <p class="eyebrow">Innovación</p>
+        <p class="mt-2 text-lg font-medium text-ink">IA aplicada</p>
       </div>
     </div>
   </div>
