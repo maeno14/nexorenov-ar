@@ -2,7 +2,7 @@ export const site = {
   name: 'Nexo Renov',
   title: 'Nexo Renov — Consultoría de software B2B',
   description:
-    'Consultoría de software para empresas que quieren digitalizar procesos administrativos con IA. Producto estrella: constanci.ar.',
+    'Consultoría de software para empresas que digitalizan procesos administrativos. Producto estrella: constanci.ar — constancias AFIP en lote desde Excel.',
   url: 'https://nexorenov.ar',
   locale: 'es_AR',
   email: 'mariano.argentato@gmail.com',
@@ -10,7 +10,8 @@ export const site = {
   product: {
     name: 'constanci.ar',
     url: 'https://constanci.ar/',
-    tagline: 'Gestión administrativa digital con trazabilidad y cumplimiento.',
+    tagline:
+      'Automatización de constancias AFIP: subí un Excel con CUITs y descargá PDFs oficiales en lote.',
   },
 } as const;
 
