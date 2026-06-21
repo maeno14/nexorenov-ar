@@ -19,7 +19,7 @@ export const productExternalUrl = site.product.url;
 
 export const navLinks = [
   { href: '#servicios', label: 'Servicios' },
-  { href: 'https://constanci.ar/', label: 'constanci.ar', external: true },
+  { href: productExternalUrl, label: site.product.name, external: true },
   { href: '#clientes', label: 'Para quién' },
   { href: '#proceso', label: 'Cómo trabajamos' },
   { href: '#contacto', label: 'Contacto' },
