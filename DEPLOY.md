@@ -24,6 +24,23 @@ Si necesitás crear el repo desde cero en otra cuenta:
 gh repo create nexorenov-ar --public --source=. --remote=origin --push
 ```
 
+## Opción A: Deploy automático vía API (agente / CLI)
+
+1. Copiá `cloudflare.credentials.example` → `cloudflare.credentials`
+2. Completá `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID` (ver comentarios en el archivo)
+3. Ejecutá:
+
+```bash
+chmod +x scripts/deploy-cloudflare.sh
+./scripts/deploy-cloudflare.sh
+```
+
+**Importante:** el token de `cloudflared` (Tunnel) **no sirve** para Pages. Necesitás un **API Token** desde [Profile → API Tokens](https://dash.cloudflare.com/profile/api-tokens).
+
+## Opción B: Conectar Cloudflare Pages con Git (recomendado a largo plazo)
+
+Cada push a `main` redeploya solo — no hace falta Drone ni script manual.
+
 ## Paso 2: Conectar Cloudflare Pages
 
 1. Entrá a [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages**
@@ -70,6 +87,12 @@ Sin la clave, el sitio muestra un fallback con enlace `mailto:contacto@nexorenov
 
 1. Cloudflare Dashboard → **Web Analytics** → **Add a site**
 2. Copiá el snippet y agregalo en `BaseLayout.astro` antes de `</head>`
+
+## ¿Hace falta Drone CI?
+
+**No**, para este proyecto. Cloudflare Pages ya hace build + deploy al conectar GitHub (Opción B). Drone sumaría un runner extra sin beneficio claro en una landing estática.
+
+Usá Drone solo si ya lo tenés como CI central para muchos repos o necesitás pasos custom (tests, lint, deploy a varios destinos).
 
 ## Límites del tier gratuito
 
