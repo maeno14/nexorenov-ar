@@ -81,7 +81,7 @@ https://nexorenov-ar.pages.dev
 3. Agregalo como `PUBLIC_WEB3FORMS_ACCESS_KEY` en Cloudflare Pages → Settings → Environment variables
 4. Redeployá el sitio
 
-Sin la clave, el sitio muestra un fallback con enlace `mailto:contacto@nexorenov.ar`.
+Sin la clave, el sitio muestra un fallback con enlace mailto al email configurado en `src/config/site.ts`.
 
 ## Analytics (opcional)
 

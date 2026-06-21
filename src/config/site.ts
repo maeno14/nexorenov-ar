@@ -5,7 +5,7 @@ export const site = {
     'Consultoría de software para empresas que quieren digitalizar procesos administrativos con IA. Producto estrella: constanci.ar.',
   url: 'https://nexorenov.ar',
   locale: 'es_AR',
-  email: 'contacto@nexorenov.ar',
+  email: 'mariano.argentato@gmail.com',
   whatsapp: '',
   product: {
     name: 'constanci.ar',
