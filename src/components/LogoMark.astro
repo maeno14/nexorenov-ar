@@ -1,0 +1,34 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+  variant?: 'dark' | 'light';
+}
+
+const { size = 32, class: className = '', variant = 'dark' } = Astro.props;
+
+const bg = variant === 'dark' ? '#111111' : '#FBFBFA';
+const fg = variant === 'dark' ? '#FBFBFA' : '#111111';
+const border = variant === 'light' ? '#EAEAEA' : 'none';
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 32 32"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  class={className}
+  aria-hidden="true"
+>
+  <rect width="32" height="32" rx="7" fill={bg} stroke={border} stroke-width={border === 'none' ? 0 : 1}></rect>
+  <circle cx="11.5" cy="16" r="2.25" fill={fg}></circle>
+  <circle cx="19.5" cy="16" r="2.25" fill={fg}></circle>
+  <path d="M14 16h3.5" stroke={fg} stroke-width="1.8" stroke-linecap="round"></path>
+  <path
+    d="M19.5 16h4.5M22.5 13.5L24 16l-1.5 2.5"
+    stroke={fg}
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+</svg>

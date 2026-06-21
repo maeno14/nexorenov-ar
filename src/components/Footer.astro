@@ -1,5 +1,6 @@
 ---
 import { site, productExternalUrl } from '../config/site';
+import LogoMark from './LogoMark.astro';
 
 const year = new Date().getFullYear();
 ---
@@ -7,24 +8,27 @@ const year = new Date().getFullYear();
 <footer class="border-t border-border bg-canvas">
   <div class="container-nexo px-5 py-12 sm:px-8 lg:px-12">
     <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-      <div>
-        <p class="text-base font-medium text-ink">{site.name}</p>
-        <p class="mt-2 max-w-sm text-sm text-muted">
-          Consultoría de software B2B para empresas en modernización de procesos administrativos.
-        </p>
-        <p class="mt-4 text-sm text-muted">
-          <a href={site.url} class="link-muted">nexoceler.ar</a>
-          <span class="mx-1">·</span>
-          Producto:{' '}
-          <a
-            href={productExternalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-muted"
-          >
-            {site.product.name}
-          </a>
-        </p>
+      <div class="flex gap-4">
+        <LogoMark size={40} variant="light" class="shrink-0" />
+        <div>
+          <p class="text-base font-medium text-ink">{site.name}</p>
+          <p class="mt-2 max-w-sm text-sm text-muted">
+            Consultoría de software B2B para empresas en modernización de procesos administrativos.
+          </p>
+          <p class="mt-4 text-sm text-muted">
+            <a href={site.url} class="link-muted">nexoceler.ar</a>
+            <span class="mx-1">·</span>
+            Producto:{' '}
+            <a
+              href={productExternalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-muted"
+            >
+              {site.product.name}
+            </a>
+          </p>
+        </div>
       </div>
 
       <nav class="flex flex-col gap-2 text-sm" aria-label="Pie de página">
