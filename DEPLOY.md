@@ -6,19 +6,22 @@
 - Cuenta en [GitHub](https://github.com)
 - Este repositorio subido a GitHub
 
-## Paso 1: Crear repositorio en GitHub
+## Paso 1: Repositorio en GitHub
+
+El código ya está en: **https://github.com/maeno14/nexorenov-ar**
+
+Para clonar o contribuir:
 
 ```bash
-git add .
-git commit -m "feat: landing Nexo Renov con Astro"
-gh repo create nexorenov-ar --public --source=. --remote=origin --push
+git clone https://github.com/maeno14/nexorenov-ar.git
+cd nexorenov-ar
+npm install && npm run dev
 ```
 
-Si el repo ya existe, solo hacé push:
+Si necesitás crear el repo desde cero en otra cuenta:
 
 ```bash
-git remote add origin git@github.com:TU_USUARIO/nexorenov-ar.git
-git push -u origin main
+gh repo create nexorenov-ar --public --source=. --remote=origin --push
 ```
 
 ## Paso 2: Conectar Cloudflare Pages
