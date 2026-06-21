@@ -21,6 +21,8 @@ import { navLinks, site } from '../config/site';
         navLinks.map((link) => (
           <a
             href={link.href}
+            target={'external' in link && link.external ? '_blank' : undefined}
+            rel={'external' in link && link.external ? 'noopener noreferrer' : undefined}
             class="text-sm font-medium text-nexo-muted transition hover:text-nexo-accent"
           >
             {link.label}

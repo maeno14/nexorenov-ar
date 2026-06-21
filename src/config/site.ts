@@ -9,14 +9,17 @@ export const site = {
   whatsapp: '',
   product: {
     name: 'contanci.ar',
-    url: 'https://contanci.ar',
+    url: 'https://contanci.ar/',
     tagline: 'Gestión administrativa digital con trazabilidad y cumplimiento.',
   },
 } as const;
 
+/** URL absoluta del producto — siempre con https para evitar rutas relativas. */
+export const productExternalUrl = site.product.url;
+
 export const navLinks = [
   { href: '#servicios', label: 'Servicios' },
-  { href: '#contanci', label: 'contanci.ar' },
+  { href: 'https://contanci.ar/', label: 'contanci.ar', external: true },
   { href: '#clientes', label: 'Para quién' },
   { href: '#proceso', label: 'Cómo trabajamos' },
   { href: '#contacto', label: 'Contacto' },

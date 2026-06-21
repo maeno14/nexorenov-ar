@@ -1,5 +1,5 @@
 ---
-import { site } from '../config/site';
+import { site, productExternalUrl } from '../config/site';
 ---
 
 <section class="section-pad overflow-hidden">
@@ -25,7 +25,9 @@ import { site } from '../config/site';
           Agendar consulta
         </a>
         <a
-          href="#contanci"
+          href={productExternalUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center justify-center rounded-full border border-nexo-border bg-white px-6 py-3 text-sm font-semibold text-nexo-ink transition hover:border-nexo-accent hover:text-nexo-accent"
         >
           Conocer contanci.ar

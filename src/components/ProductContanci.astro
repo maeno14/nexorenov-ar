@@ -1,5 +1,5 @@
 ---
-import { site } from '../config/site';
+import { site, productExternalUrl } from '../config/site';
 
 const benefits = [
   'Menos papeles y menos reprocesos en tareas administrativas',
@@ -38,7 +38,7 @@ const benefits = [
           }
         </ul>
         <a
-          href={site.product.url}
+          href={productExternalUrl}
           target="_blank"
           rel="noopener noreferrer"
           class="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-nexo-ink transition hover:bg-teal-50"

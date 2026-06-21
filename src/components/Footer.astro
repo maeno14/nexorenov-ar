@@ -1,5 +1,5 @@
 ---
-import { site } from '../config/site';
+import { site, productExternalUrl } from '../config/site';
 
 const year = new Date().getFullYear();
 ---
@@ -16,7 +16,7 @@ const year = new Date().getFullYear();
           <a href={site.url} class="hover:text-nexo-accent">nexorenov.ar</a>
           · Producto:{' '}
           <a
-            href={site.product.url}
+            href={productExternalUrl}
             target="_blank"
             rel="noopener noreferrer"
             class="hover:text-nexo-accent"
@@ -28,7 +28,14 @@ const year = new Date().getFullYear();
 
       <nav class="flex flex-col gap-2 text-sm text-nexo-muted" aria-label="Pie de página">
         <a href="#servicios" class="hover:text-nexo-accent">Servicios</a>
-        <a href="#contanci" class="hover:text-nexo-accent">contanci.ar</a>
+        <a
+          href={productExternalUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-nexo-accent"
+        >
+          contanci.ar
+        </a>
         <a href="#contacto" class="hover:text-nexo-accent">Contacto</a>
         <a href={`mailto:${site.email}`} class="hover:text-nexo-accent">{site.email}</a>
       </nav>
