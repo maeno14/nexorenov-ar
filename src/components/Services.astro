@@ -4,55 +4,77 @@ const services = [
     title: 'Diagnóstico de procesos',
     description:
       'Mapeamos flujos administrativos, cuellos de botella y riesgos operativos para priorizar con datos.',
-    icon: '01',
+    tag: 'tag-blue',
+    featured: true,
   },
   {
     title: 'Automatización',
     description:
-      'Eliminamos tareas repetitivas con workflows digitales, aprobaciones y notificaciones trazables.',
-    icon: '02',
+      'Workflows digitales, aprobaciones y notificaciones trazables para tareas repetitivas.',
+    tag: 'tag-green',
+    featured: false,
   },
   {
     title: 'Integración de sistemas',
     description:
-      'Conectamos ERP, planillas, documentación y herramientas existentes sin romper lo que ya funciona.',
-    icon: '03',
+      'Conectamos ERP, planillas y documentación sin romper lo que ya funciona.',
+    tag: 'tag-yellow',
+    featured: false,
   },
   {
     title: 'Adopción de IA',
     description:
-      'Identificamos casos de uso concretos: clasificación documental, extracción de datos y asistencia operativa.',
-    icon: '04',
+      'Casos concretos: clasificación documental, extracción de datos y asistencia operativa.',
+    tag: 'tag-blue',
+    featured: false,
   },
   {
     title: 'Change management',
     description:
-      'Capacitación y acompañamiento para que los equipos adopten el cambio con confianza y continuidad.',
-    icon: '05',
+      'Capacitación y acompañamiento para que los equipos adopten el cambio con continuidad.',
+    tag: 'tag-green',
+    featured: false,
   },
 ];
 ---
 
-<section id="servicios" class="section-pad bg-white">
+<section id="servicios" class="section-pad border-t border-border bg-canvas-alt">
   <div class="container-nexo">
-    <div class="max-w-2xl">
-      <p class="text-sm font-semibold uppercase tracking-wider text-nexo-accent">Servicios</p>
-      <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-nexo-ink sm:text-4xl">
+    <div class="reveal max-w-2xl" style="--index: 0">
+      <p class="eyebrow">Servicios</p>
+      <h2 class="heading-display mt-3 text-3xl font-semibold sm:text-4xl">
         De la planilla al proceso digital, con método
       </h2>
-      <p class="mt-4 text-lg text-nexo-muted">
-        Acompañamos a empresas que necesitan orden, velocidad y trazabilidad en su gestión
+      <p class="mt-4 text-lg text-muted">
+        Acompañamos a equipos que necesitan orden, velocidad y trazabilidad en su gestión
         administrativa.
       </p>
     </div>
 
-    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-14 grid gap-4 lg:grid-cols-3">
       {
-        services.map((service) => (
-          <article class="group rounded-2xl border border-nexo-border bg-nexo-surface p-6 transition hover:border-teal-200 hover:shadow-lg hover:shadow-teal-500/5">
-            <span class="font-display text-sm font-bold text-nexo-accent">{service.icon}</span>
-            <h3 class="mt-4 font-display text-xl font-semibold text-nexo-ink">{service.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-nexo-muted">{service.description}</p>
+        services.map((service, i) => (
+          <article
+            class:list={[
+              'card card-hover reveal p-6 lg:p-8',
+              service.featured && 'lg:col-span-2',
+            ]}
+            style={`--index: ${i + 1}`}
+          >
+            <div>
+              <span class:list={['tag', service.tag]}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3
+                class:list={[
+                  'mt-4 font-medium text-ink',
+                  service.featured ? 'text-2xl' : 'text-xl',
+                ]}
+              >
+                {service.title}
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted">{service.description}</p>
+            </div>
           </article>
         ))
       }

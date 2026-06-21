@@ -5,94 +5,56 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
 const hasForm = accessKey.length > 0;
 ---
 
-<section id="contacto" class="section-pad">
+<section id="contacto" class="section-pad border-t border-border bg-surface">
   <div class="container-nexo">
-    <div class="overflow-hidden rounded-3xl border border-nexo-border bg-white shadow-xl shadow-slate-200/50">
+    <div class="card reveal overflow-hidden" style="--index: 0">
       <div class="grid lg:grid-cols-2">
-        <div class="bg-nexo-ink p-8 text-white sm:p-12">
-          <p class="text-sm font-semibold uppercase tracking-wider text-teal-300">Contacto</p>
-          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+        <div class="border-b border-border p-8 sm:p-12 lg:border-b-0 lg:border-r">
+          <p class="eyebrow">Contacto</p>
+          <h2 class="heading-display mt-3 text-3xl font-semibold sm:text-4xl">
             Agendemos una consulta
           </h2>
-          <p class="mt-4 leading-relaxed text-slate-300">
+          <p class="mt-4 leading-relaxed text-muted">
             Contanos qué procesos administrativos querés mejorar. Te respondemos con una
             propuesta de diagnóstico inicial.
           </p>
-          <div class="mt-8 space-y-4">
-            <a
-              href={`mailto:${site.email}`}
-              class="flex items-center gap-3 text-sm text-slate-200 transition hover:text-white"
-            >
-              <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10">@</span>
-              {site.email}
-            </a>
-            {
-              site.whatsapp && (
-                <a
-                  href={`https://wa.me/${site.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="flex items-center gap-3 text-sm text-slate-200 transition hover:text-white"
-                >
-                  <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10">
-                    WA
-                  </span>
-                  WhatsApp
-                </a>
-              )
-            }
-          </div>
+          <a
+            href={`mailto:${site.email}`}
+            class="mt-8 inline-flex items-center gap-2 text-sm text-muted transition hover:text-ink"
+          >
+            <span class="font-mono text-xs">@</span>
+            {site.email}
+          </a>
         </div>
 
         <div class="p-8 sm:p-12">
           {
             hasForm ? (
-              <form
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                class="space-y-5"
-              >
+              <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
                 <input type="hidden" name="access_key" value={accessKey} />
                 <input type="hidden" name="subject" value="Consulta desde nexorenov.ar" />
                 <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
 
                 <div>
-                  <label for="name" class="mb-1.5 block text-sm font-medium text-nexo-ink">
+                  <label for="name" class="mb-1.5 block text-sm font-medium text-ink">
                     Nombre
                   </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    class="w-full rounded-xl border border-nexo-border bg-nexo-surface px-4 py-3 text-sm outline-none transition focus:border-nexo-accent focus:ring-2 focus:ring-teal-500/20"
-                  />
+                  <input id="name" name="name" type="text" required class="input-field" />
                 </div>
                 <div>
-                  <label for="email" class="mb-1.5 block text-sm font-medium text-nexo-ink">
+                  <label for="email" class="mb-1.5 block text-sm font-medium text-ink">
                     Email corporativo
                   </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    class="w-full rounded-xl border border-nexo-border bg-nexo-surface px-4 py-3 text-sm outline-none transition focus:border-nexo-accent focus:ring-2 focus:ring-teal-500/20"
-                  />
+                  <input id="email" name="email" type="email" required class="input-field" />
                 </div>
                 <div>
-                  <label for="company" class="mb-1.5 block text-sm font-medium text-nexo-ink">
+                  <label for="company" class="mb-1.5 block text-sm font-medium text-ink">
                     Empresa
                   </label>
-                  <input
-                    id="company"
-                    name="company"
-                    type="text"
-                    class="w-full rounded-xl border border-nexo-border bg-nexo-surface px-4 py-3 text-sm outline-none transition focus:border-nexo-accent focus:ring-2 focus:ring-teal-500/20"
-                  />
+                  <input id="company" name="company" type="text" class="input-field" />
                 </div>
                 <div>
-                  <label for="message" class="mb-1.5 block text-sm font-medium text-nexo-ink">
+                  <label for="message" class="mb-1.5 block text-sm font-medium text-ink">
                     Mensaje
                   </label>
                   <textarea
@@ -100,33 +62,28 @@ const hasForm = accessKey.length > 0;
                     name="message"
                     rows="4"
                     required
-                    class="w-full resize-none rounded-xl border border-nexo-border bg-nexo-surface px-4 py-3 text-sm outline-none transition focus:border-nexo-accent focus:ring-2 focus:ring-teal-500/20"
+                    class="input-field resize-none"
                     placeholder="¿Qué procesos administrativos querés digitalizar?"
                   />
                 </div>
-                <button
-                  type="submit"
-                  class="w-full rounded-full bg-nexo-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-nexo-accent-light"
-                >
-                  Enviar consulta
-                </button>
+                <button type="submit" class="btn-primary w-full"> Enviar consulta </button>
               </form>
             ) : (
               <div class="flex h-full flex-col justify-center">
-                <p class="text-sm leading-relaxed text-nexo-muted">
-                  El formulario se activa al configurar la variable de entorno{' '}
-                  <code class="rounded bg-nexo-surface px-1.5 py-0.5 text-xs text-nexo-ink">
+                <p class="text-sm leading-relaxed text-muted">
+                  El formulario se activa al configurar{' '}
+                  <code class="rounded bg-canvas-alt px-1.5 py-0.5 font-mono text-xs text-ink">
                     PUBLIC_WEB3FORMS_ACCESS_KEY
                   </code>{' '}
                   en Cloudflare Pages. Mientras tanto, escribinos a{' '}
-                  <a href={`mailto:${site.email}`} class="font-medium text-nexo-accent hover:underline">
+                  <a href={`mailto:${site.email}`} class="font-medium text-ink hover:underline">
                     {site.email}
                   </a>
                   .
                 </p>
                 <a
                   href={`mailto:${site.email}?subject=Consulta%20Nexo%20Renov`}
-                  class="mt-6 inline-flex w-fit items-center justify-center rounded-full bg-nexo-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-nexo-accent-light"
+                  class="btn-primary mt-6 w-fit"
                 >
                   Enviar email
                 </a>

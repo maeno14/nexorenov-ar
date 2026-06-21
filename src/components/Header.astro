@@ -2,18 +2,16 @@
 import { navLinks, site } from '../config/site';
 ---
 
-<header class="sticky top-0 z-50 border-b border-nexo-border/80 bg-nexo-surface/90 backdrop-blur-md">
+<header class="sticky top-0 z-50 border-b border-border bg-canvas/95 backdrop-blur-sm">
   <div class="container-nexo flex items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-12">
-    <a href="/" class="group flex items-center gap-2.5">
+    <a href="/" class="flex items-center gap-3">
       <span
-        class="flex h-9 w-9 items-center justify-center rounded-lg bg-nexo-ink text-sm font-bold text-white transition group-hover:bg-nexo-accent"
+        class="flex h-8 w-8 items-center justify-center rounded-md border border-border bg-surface text-xs font-mono font-medium text-ink"
         aria-hidden="true"
       >
         NR
       </span>
-      <span class="font-display text-lg font-semibold tracking-tight text-nexo-ink">
-        {site.name}
-      </span>
+      <span class="text-base font-medium tracking-tight text-ink">{site.name}</span>
     </a>
 
     <nav class="hidden items-center gap-8 md:flex" aria-label="Principal">
@@ -23,7 +21,7 @@ import { navLinks, site } from '../config/site';
             href={link.href}
             target={'external' in link && link.external ? '_blank' : undefined}
             rel={'external' in link && link.external ? 'noopener noreferrer' : undefined}
-            class="text-sm font-medium text-nexo-muted transition hover:text-nexo-accent"
+            class="link-muted text-sm"
           >
             {link.label}
           </a>
@@ -31,11 +29,30 @@ import { navLinks, site } from '../config/site';
       }
     </nav>
 
-    <a
-      href="#contacto"
-      class="rounded-full bg-nexo-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-nexo-accent"
-    >
-      Agendar consulta
-    </a>
+    <div class="flex items-center gap-3">
+      <details class="relative md:hidden">
+        <summary class="list-none cursor-pointer rounded-md border border-border bg-surface px-3 py-2 text-sm font-medium text-ink [&::-webkit-details-marker]:hidden">
+          Menú
+        </summary>
+        <nav
+          class="absolute right-0 top-full z-50 mt-2 min-w-[12rem] rounded-lg border border-border bg-surface py-2 shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+          aria-label="Menú móvil"
+        >
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                target={'external' in link && link.external ? '_blank' : undefined}
+                rel={'external' in link && link.external ? 'noopener noreferrer' : undefined}
+                class="block px-4 py-2 text-sm text-muted hover:bg-canvas-alt hover:text-ink"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+      <a href="#contacto" class="btn-primary hidden sm:inline-flex"> Agendar consulta </a>
+    </div>
   </div>
 </header>

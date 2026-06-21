@@ -4,46 +4,49 @@ import { site, productExternalUrl } from '../config/site';
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-nexo-border bg-white">
-  <div class="container-nexo section-pad !py-12">
+<footer class="border-t border-border bg-canvas">
+  <div class="container-nexo px-5 py-12 sm:px-8 lg:px-12">
     <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
       <div>
-        <p class="font-display text-lg font-semibold text-nexo-ink">{site.name}</p>
-        <p class="mt-2 max-w-sm text-sm text-nexo-muted">
-          Consultoría de software B2B. Digitalización de procesos administrativos con IA.
+        <p class="text-base font-medium text-ink">{site.name}</p>
+        <p class="mt-2 max-w-sm text-sm text-muted">
+          Consultoría de software para equipos contables y administrativos en Argentina.
         </p>
-        <p class="mt-4 text-sm text-nexo-muted">
-          <a href={site.url} class="hover:text-nexo-accent">nexorenov.ar</a>
-          · Producto:{' '}
+        <p class="mt-4 text-sm text-muted">
+          <a href={site.url} class="link-muted">nexorenov.ar</a>
+          <span class="mx-1">·</span>
+          Producto:{' '}
           <a
             href={productExternalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-nexo-accent"
+            class="link-muted"
           >
             {site.product.name}
           </a>
         </p>
       </div>
 
-      <nav class="flex flex-col gap-2 text-sm text-nexo-muted" aria-label="Pie de página">
-        <a href="#servicios" class="hover:text-nexo-accent">Servicios</a>
+      <nav class="flex flex-col gap-2 text-sm" aria-label="Pie de página">
+        <a href="#servicios" class="link-muted">Servicios</a>
         <a
           href={productExternalUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="hover:text-nexo-accent"
+          class="link-muted"
         >
           {site.product.name}
         </a>
-        <a href="#contacto" class="hover:text-nexo-accent">Contacto</a>
-        <a href={`mailto:${site.email}`} class="hover:text-nexo-accent">{site.email}</a>
+        <a href="#contacto" class="link-muted">Contacto</a>
+        <a href={`mailto:${site.email}`} class="link-muted">{site.email}</a>
       </nav>
     </div>
 
-    <div class="mt-10 flex flex-col gap-2 border-t border-nexo-border pt-6 text-xs text-nexo-muted sm:flex-row sm:items-center sm:justify-between">
+    <div
+      class="mt-10 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between"
+    >
       <p>© {year} {site.name}. Todos los derechos reservados.</p>
-      <p>Argentina · Consultoría de software empresarial</p>
+      <p>Argentina</p>
     </div>
   </div>
 </footer>

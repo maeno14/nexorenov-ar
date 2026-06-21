@@ -1,15 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --color-nexo-ink: #0c1222;
-  --color-nexo-slate: #1a2332;
-  --color-nexo-muted: #64748b;
-  --color-nexo-accent: #0d9488;
-  --color-nexo-accent-light: #14b8a6;
-  --color-nexo-surface: #f8fafc;
-  --color-nexo-border: #e2e8f0;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-canvas: #fbfbf9;
+  --color-canvas-alt: #f7f6f3;
+  --color-surface: #ffffff;
+  --color-ink: #111111;
+  --color-muted: #787774;
+  --color-border: #eaeaea;
+
+  --color-pastel-blue-bg: #e1f3fe;
+  --color-pastel-blue-text: #1f6c9f;
+  --color-pastel-green-bg: #edf3ec;
+  --color-pastel-green-text: #346538;
+  --color-pastel-yellow-bg: #fbf3db;
+  --color-pastel-yellow-text: #956400;
+  --color-pastel-red-bg: #fdebec;
+  --color-pastel-red-text: #9f2f2d;
 }
 
 @layer base {
@@ -18,25 +28,123 @@
   }
 
   body {
-    @apply bg-nexo-surface text-nexo-ink antialiased;
+    @apply bg-canvas text-ink antialiased;
     font-family: var(--font-sans);
+    line-height: 1.6;
   }
 
   ::selection {
-    @apply bg-teal-200 text-nexo-ink;
+    background-color: #eaeaea;
+    color: #111111;
   }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: var(--font-display);
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
   }
 
   .section-pad {
-    @apply px-5 py-20 sm:px-8 lg:px-12 lg:py-28;
+    @apply px-5 py-24 sm:px-8 lg:px-12 lg:py-32;
   }
 
   .container-nexo {
-    @apply mx-auto w-full max-w-6xl;
+    @apply mx-auto w-full max-w-5xl;
+  }
+
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.05em] text-muted;
+  }
+
+  .heading-display {
+    font-family: var(--font-serif);
+    @apply text-ink leading-[1.1] tracking-[-0.03em];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-ink px-5 py-2.5 text-sm font-medium text-white transition;
+  }
+
+  .btn-primary:hover {
+    background-color: #333333;
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-border bg-surface px-5 py-2.5 text-sm font-medium text-ink transition;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-canvas-alt);
+  }
+
+  .btn-secondary:active {
+    transform: scale(0.98);
+  }
+
+  .card {
+    @apply rounded-lg border border-border bg-surface;
+  }
+
+  .card-hover {
+    transition:
+      box-shadow 200ms ease,
+      border-color 200ms ease;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium uppercase tracking-[0.05em];
+  }
+
+  .tag-blue {
+    background-color: var(--color-pastel-blue-bg);
+    color: var(--color-pastel-blue-text);
+  }
+
+  .tag-green {
+    background-color: var(--color-pastel-green-bg);
+    color: var(--color-pastel-green-text);
+  }
+
+  .tag-yellow {
+    background-color: var(--color-pastel-yellow-bg);
+    color: var(--color-pastel-yellow-text);
+  }
+
+  .link-muted {
+    @apply text-muted transition hover:text-ink;
+  }
+
+  .input-field {
+    @apply w-full rounded-md border border-border bg-canvas-alt px-4 py-3 text-sm text-ink outline-none transition;
+  }
+
+  .input-field:focus {
+    @apply border-ink;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--index, 0) * 80ms);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

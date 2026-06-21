@@ -2,68 +2,47 @@
 import { site, productExternalUrl } from '../config/site';
 ---
 
-<section class="section-pad overflow-hidden">
-  <div class="container-nexo grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-    <div>
-      <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-teal-800">
-        <span class="h-1.5 w-1.5 rounded-full bg-nexo-accent" aria-hidden="true"></span>
-        Consultoría B2B · Digitalización · IA
-      </p>
-      <h1 class="font-display text-4xl font-bold leading-[1.1] tracking-tight text-nexo-ink sm:text-5xl lg:text-[3.25rem]">
-        Renovamos cómo su empresa gestiona procesos administrativos
+<section class="section-pad">
+  <div class="container-nexo">
+    <div class="reveal max-w-4xl" style="--index: 0">
+      <span class="tag tag-blue">Consultoría B2B</span>
+      <h1 class="heading-display mt-6 text-4xl font-semibold sm:text-5xl lg:text-[3.25rem]">
+        Software y procesos para equipos que operan en volumen
       </h1>
-      <p class="mt-6 max-w-xl text-lg leading-relaxed text-nexo-muted">
-        {site.name} es consultoría de software para organizaciones que quieren dejar atrás
-        el papeleo, integrar sistemas y adoptar IA con criterio — sin perder control ni
-        cumplimiento.
+      <p class="mt-6 max-w-2xl text-lg text-muted">
+        {site.name} acompaña a estudios contables y empresas que necesitan ordenar
+        operaciones administrativas, integrar sistemas y adoptar herramientas como{' '}
+        {site.product.name} sin sumar fricción al día a día.
       </p>
-      <div class="mt-8 flex flex-wrap gap-4">
-        <a
-          href="#contacto"
-          class="inline-flex items-center justify-center rounded-full bg-nexo-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition hover:bg-nexo-accent-light"
-        >
-          Agendar consulta
-        </a>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#contacto" class="btn-primary"> Agendar consulta </a>
         <a
           href={productExternalUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center rounded-full border border-nexo-border bg-white px-6 py-3 text-sm font-semibold text-nexo-ink transition hover:border-nexo-accent hover:text-nexo-accent"
+          class="btn-secondary"
         >
           Conocer {site.product.name}
         </a>
       </div>
     </div>
 
-    <div class="relative">
-      <div
-        class="absolute -right-8 -top-8 h-48 w-48 rounded-full bg-teal-100/60 blur-3xl"
-        aria-hidden="true"
-      >
+    <div class="reveal mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" style="--index: 1">
+      <div class="card card-hover p-6">
+        <p class="eyebrow">Enfoque</p>
+        <p class="mt-2 text-lg font-medium text-ink">Procesos admin.</p>
       </div>
-      <div class="relative rounded-2xl border border-nexo-border bg-white p-8 shadow-xl shadow-slate-200/60">
-        <dl class="grid gap-6 sm:grid-cols-2">
-          <div>
-            <dt class="text-xs font-semibold uppercase tracking-wider text-nexo-muted">Enfoque</dt>
-            <dd class="mt-1 font-display text-2xl font-semibold text-nexo-ink">Procesos admin.</dd>
-          </div>
-          <div>
-            <dt class="text-xs font-semibold uppercase tracking-wider text-nexo-muted">Sector</dt>
-            <dd class="mt-1 font-display text-2xl font-semibold text-nexo-ink">Empresas B2B</dd>
-          </div>
-          <div>
-            <dt class="text-xs font-semibold uppercase tracking-wider text-nexo-muted">Producto</dt>
-            <dd class="mt-1 font-display text-2xl font-semibold text-nexo-accent">{site.product.name}</dd>
-          </div>
-          <div>
-            <dt class="text-xs font-semibold uppercase tracking-wider text-nexo-muted">Resultado</dt>
-            <dd class="mt-1 font-display text-2xl font-semibold text-nexo-ink">Constancias AFIP</dd>
-          </div>
-        </dl>
-        <p class="mt-8 border-t border-nexo-border pt-6 text-sm leading-relaxed text-nexo-muted">
-          Consultoría + producto propio: desde el diagnóstico del proceso hasta herramientas
-          como {site.product.name} para operar en volumen.
-        </p>
+      <div class="card card-hover p-6">
+        <p class="eyebrow">Sector</p>
+        <p class="mt-2 text-lg font-medium text-ink">Contable / fiscal</p>
+      </div>
+      <div class="card card-hover p-6">
+        <p class="eyebrow">Producto</p>
+        <p class="mt-2 text-lg font-medium text-ink">{site.product.name}</p>
+      </div>
+      <div class="card card-hover p-6">
+        <p class="eyebrow">Resultado</p>
+        <p class="mt-2 text-lg font-medium text-ink">Lotes AFIP</p>
       </div>
     </div>
   </div>
