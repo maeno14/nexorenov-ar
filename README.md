@@ -1,6 +1,6 @@
-# Nexo Renov
+# Nexo Celer
 
-Landing page de consultoría de software B2B para [nexorenov.ar](https://nexorenov.ar). Producto estrella: [constanci.ar](https://constanci.ar).
+Landing page de consultoría de software B2B para [nexoceler.ar](https://nexoceler.ar). Producto estrella: [constanci.ar](https://constanci.ar).
 
 ## Stack
 
@@ -35,7 +35,7 @@ Copiá `.env.example` a `.env` para desarrollo local.
 
 Ver [DEPLOY.md](./DEPLOY.md) para GitHub + Cloudflare Pages.
 
-Ver [DOMAIN.md](./DOMAIN.md) para conectar `nexorenov.ar`.
+Ver [DOMAIN.md](./DOMAIN.md) para conectar `nexoceler.ar`.
 
 ## Estructura
 

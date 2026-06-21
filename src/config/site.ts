@@ -1,9 +1,9 @@
 export const site = {
-  name: 'Nexo Renov',
-  title: 'Nexo Renov — Consultoría de software B2B',
+  name: 'Nexo Celer',
+  title: 'Nexo Celer — Consultoría de software B2B',
   description:
     'Consultoría de software para empresas que digitalizan procesos administrativos. Producto estrella: constanci.ar — constancias AFIP en lote desde Excel.',
-  url: 'https://nexorenov.ar',
+  url: 'https://nexoceler.ar',
   locale: 'es_AR',
   email: 'mariano.argentato@gmail.com',
   whatsapp: '',

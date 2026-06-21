@@ -17,13 +17,13 @@ if [[ -z "${CLOUDFLARE_API_TOKEN:-}" || -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]]; then
   exit 1
 fi
 
-PROJECT="${CLOUDFLARE_PAGES_PROJECT:-nexorenov-ar}"
+PROJECT="${CLOUDFLARE_PAGES_PROJECT:-nexoceler-ar}"
 
 if [[ -z "${PUBLIC_WEB3FORMS_ACCESS_KEY:-}" ]]; then
   PUBLIC_WEB3FORMS_ACCESS_KEY="$(
     curl -sS "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${PROJECT}" \
       -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
-      | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('result',{}).get('deployment_configs',{}).get('production',{}).get('env_vars',{}).get('PUBLIC_WEB3FORMS_ACCESS_KEY',{}).get('value',''))"
+      | python3 -c "import sys,json; d=json.load(sys.stdin); r=d.get('result') or {}; print(r.get('deployment_configs',{}).get('production',{}).get('env_vars',{}).get('PUBLIC_WEB3FORMS_ACCESS_KEY',{}).get('value',''))"
   )"
 fi
 

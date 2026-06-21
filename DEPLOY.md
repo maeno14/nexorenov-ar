@@ -69,7 +69,7 @@ Cada push a `main` redeploya solo — no hace falta Drone ni script manual.
 Tras el build exitoso, Cloudflare asigna una URL:
 
 ```
-https://nexorenov-ar.pages.dev
+https://nexoceler-ar.pages.dev
 ```
 
 (o similar según el nombre del proyecto). Cada push a `main` redeploya automáticamente. Cada PR genera una preview URL.
