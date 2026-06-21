@@ -1,6 +1,6 @@
 # Nexo Renov
 
-Landing page de consultoría de software B2B para [nexorenov.ar](https://nexorenov.ar). Producto estrella: [contanci.ar](https://contanci.ar).
+Landing page de consultoría de software B2B para [nexorenov.ar](https://nexorenov.ar). Producto estrella: [constanci.ar](https://constanci.ar).
 
 ## Stack
 
