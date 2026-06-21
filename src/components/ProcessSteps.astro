@@ -1,0 +1,51 @@
+---
+const steps = [
+  {
+    step: '01',
+    title: 'Diagnóstico',
+    description:
+      'Entrevistas, revisión de flujos y priorización de quick wins junto a los responsables de cada área.',
+  },
+  {
+    step: '02',
+    title: 'Diseño',
+    description:
+      'Definimos la arquitectura de procesos, integraciones y roadmap con entregables claros por fase.',
+  },
+  {
+    step: '03',
+    title: 'Implementación',
+    description:
+      'Desarrollamos, migramos datos y desplegamos con pruebas junto a usuarios reales del negocio.',
+  },
+  {
+    step: '04',
+    title: 'Soporte',
+    description:
+      'Monitoreamos adopción, ajustamos y escalamos con métricas de uso y satisfacción del equipo.',
+  },
+];
+---
+
+<section id="proceso" class="section-pad bg-white">
+  <div class="container-nexo">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-wider text-nexo-accent">Cómo trabajamos</p>
+      <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-nexo-ink sm:text-4xl">
+        Un método claro, de punta a punta
+      </h2>
+    </div>
+
+    <ol class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      {
+        steps.map((item) => (
+          <li class="relative">
+            <span class="font-display text-4xl font-bold text-teal-100">{item.step}</span>
+            <h3 class="mt-4 font-display text-xl font-semibold text-nexo-ink">{item.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-nexo-muted">{item.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+const audiences = [
+  {
+    title: 'PyMEs en crecimiento',
+    description:
+      'Organizaciones que escalan operaciones pero aún gestionan administración con herramientas dispersas.',
+  },
+  {
+    title: 'Empresas medianas',
+    description:
+      'Equipos con volumen documental alto que necesitan estandarizar procesos entre áreas y sucursales.',
+  },
+  {
+    title: 'Grandes empresas',
+    description:
+      'Unidades administrativas que buscan modernizar sin reemplazar todo el ecosistema de sistemas.',
+  },
+  {
+    title: 'Sectores regulados',
+    description:
+      'Industrias con exigencias de auditoría, vencimientos y documentación que no toleran errores.',
+  },
+];
+---
+
+<section id="clientes" class="section-pad">
+  <div class="container-nexo">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-nexo-accent">Para quién</p>
+      <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-nexo-ink sm:text-4xl">
+        Empresas con procesos administrativos manuales o fragmentados
+      </h2>
+      <p class="mt-4 text-lg text-nexo-muted">
+        Trabajamos con equipos de administración, finanzas, operaciones y dirección que
+        necesitan resultados medibles, no solo un proyecto de software.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2">
+      {
+        audiences.map((item) => (
+          <article class="rounded-2xl border border-nexo-border bg-white p-7">
+            <h3 class="font-display text-xl font-semibold text-nexo-ink">{item.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-nexo-muted">{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

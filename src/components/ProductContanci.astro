@@ -1,0 +1,73 @@
+---
+import { site } from '../config/site';
+
+const benefits = [
+  'Menos papeles y menos reprocesos en tareas administrativas',
+  'Trazabilidad completa de documentos, aprobaciones y vencimientos',
+  'Cumplimiento normativo con registros auditables',
+  'Visibilidad en tiempo real para gerencia y equipos operativos',
+];
+---
+
+<section id="contanci" class="section-pad bg-nexo-ink text-white">
+  <div class="container-nexo">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wider text-teal-300">Producto estrella</p>
+        <h2 class="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+          {site.product.name}
+        </h2>
+        <p class="mt-4 text-lg leading-relaxed text-slate-300">
+          {site.product.tagline} Es la plataforma que desarrollamos desde {site.name} para
+          empresas que quieren digitalizar su gestión administrativa con un producto listo
+          para operar.
+        </p>
+        <ul class="mt-8 space-y-3">
+          {
+            benefits.map((benefit) => (
+              <li class="flex items-start gap-3 text-sm leading-relaxed text-slate-200 sm:text-base">
+                <span
+                  class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-500/20 text-teal-300"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+                {benefit}
+              </li>
+            ))
+          }
+        </ul>
+        <a
+          href={site.product.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-nexo-ink transition hover:bg-teal-50"
+        >
+          Visitar contanci.ar
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+        <p class="text-xs font-semibold uppercase tracking-wider text-teal-300">Ideal para</p>
+        <p class="mt-4 font-display text-2xl font-semibold leading-snug">
+          Equipos administrativos que hoy dependen de planillas, carpetas compartidas y
+          seguimiento manual.
+        </p>
+        <div class="mt-8 grid grid-cols-2 gap-4">
+          <div class="rounded-xl bg-white/10 p-4">
+            <p class="text-2xl font-bold text-teal-300">−60%</p>
+            <p class="mt-1 text-xs text-slate-300">tiempo en tareas repetitivas*</p>
+          </div>
+          <div class="rounded-xl bg-white/10 p-4">
+            <p class="text-2xl font-bold text-teal-300">100%</p>
+            <p class="mt-1 text-xs text-slate-300">trazabilidad documental</p>
+          </div>
+        </div>
+        <p class="mt-6 text-xs text-slate-400">
+          *Resultados orientativos según madurez del proceso y adopción del equipo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

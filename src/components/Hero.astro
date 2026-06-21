@@ -1,0 +1,68 @@
+---
+import { site } from '../config/site';
+---
+
+<section class="section-pad overflow-hidden">
+  <div class="container-nexo grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <div>
+      <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-teal-800">
+        <span class="h-1.5 w-1.5 rounded-full bg-nexo-accent" aria-hidden="true"></span>
+        Consultoría B2B · Digitalización · IA
+      </p>
+      <h1 class="font-display text-4xl font-bold leading-[1.1] tracking-tight text-nexo-ink sm:text-5xl lg:text-[3.25rem]">
+        Renovamos cómo su empresa gestiona procesos administrativos
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-nexo-muted">
+        {site.name} es consultoría de software para organizaciones que quieren dejar atrás
+        el papeleo, integrar sistemas y adoptar IA con criterio — sin perder control ni
+        cumplimiento.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href="#contacto"
+          class="inline-flex items-center justify-center rounded-full bg-nexo-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition hover:bg-nexo-accent-light"
+        >
+          Agendar consulta
+        </a>
+        <a
+          href="#contanci"
+          class="inline-flex items-center justify-center rounded-full border border-nexo-border bg-white px-6 py-3 text-sm font-semibold text-nexo-ink transition hover:border-nexo-accent hover:text-nexo-accent"
+        >
+          Conocer contanci.ar
+        </a>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div
+        class="absolute -right-8 -top-8 h-48 w-48 rounded-full bg-teal-100/60 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="relative rounded-2xl border border-nexo-border bg-white p-8 shadow-xl shadow-slate-200/60">
+        <dl class="grid gap-6 sm:grid-cols-2">
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-nexo-muted">Enfoque</dt>
+            <dd class="mt-1 font-display text-2xl font-semibold text-nexo-ink">Procesos admin.</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-nexo-muted">Sector</dt>
+            <dd class="mt-1 font-display text-2xl font-semibold text-nexo-ink">Empresas B2B</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-nexo-muted">Producto</dt>
+            <dd class="mt-1 font-display text-2xl font-semibold text-nexo-accent">contanci.ar</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-wider text-nexo-muted">Resultado</dt>
+            <dd class="mt-1 font-display text-2xl font-semibold text-nexo-ink">Menos fricción</dd>
+          </div>
+        </dl>
+        <p class="mt-8 border-t border-nexo-border pt-6 text-sm leading-relaxed text-nexo-muted">
+          Diagnóstico, diseño e implementación con acompañamiento continuo para equipos
+          administrativos, finanzas y operaciones.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
