@@ -19,7 +19,23 @@ fi
 
 PROJECT="${CLOUDFLARE_PAGES_PROJECT:-nexorenov-ar}"
 
+if [[ -z "${PUBLIC_WEB3FORMS_ACCESS_KEY:-}" ]]; then
+  PUBLIC_WEB3FORMS_ACCESS_KEY="$(
+    curl -sS "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${PROJECT}" \
+      -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+      | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('result',{}).get('deployment_configs',{}).get('production',{}).get('env_vars',{}).get('PUBLIC_WEB3FORMS_ACCESS_KEY',{}).get('value',''))"
+  )"
+fi
+
 cd "$ROOT"
+
+if [[ -n "${PUBLIC_WEB3FORMS_ACCESS_KEY}" ]]; then
+  export PUBLIC_WEB3FORMS_ACCESS_KEY
+  echo "Formulario: PUBLIC_WEB3FORMS_ACCESS_KEY cargada desde Cloudflare."
+else
+  echo "Formulario: sin PUBLIC_WEB3FORMS_ACCESS_KEY (se usará fallback mailto)."
+fi
+
 npm run build
 
 export CLOUDFLARE_API_TOKEN
