@@ -3,26 +3,20 @@ import { navLinks, site } from '../config/site';
 import LogoMark from './LogoMark.astro';
 ---
 
-<header class="sticky top-0 z-50 border-b border-border bg-canvas/95 backdrop-blur-sm">
-  <div class="container-nexo flex items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-12">
-    <a href="/" class="flex items-center gap-3">
-      <LogoMark size={36} />
-      <span class="leading-tight">
-        <span class="block text-base font-medium tracking-tight text-ink">Nexo</span>
-        <span class="block font-mono text-xs tracking-wide text-muted">Celer</span>
+<header class="sticky top-0 z-50 border-b border-border/80 bg-canvas/90 backdrop-blur-xl">
+  <div class="container-nexo flex min-h-[4.75rem] items-center justify-between gap-5 px-5 sm:px-8 lg:px-12">
+    <a href="/" class="group flex items-center gap-3 rounded-lg" aria-label={`${site.name}, inicio`}>
+      <LogoMark size={38} class="transition group-hover:rotate-[-3deg]" />
+      <span class="hidden leading-[0.95] sm:block">
+        <span class="block text-base font-semibold tracking-[-0.03em] text-ink">Nexo</span>
+        <span class="block font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">Celer</span>
       </span>
-      <span class="sr-only">{site.name}</span>
     </a>
 
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Principal">
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Principal">
       {
         navLinks.map((link) => (
-          <a
-            href={link.href}
-            target={'external' in link && link.external ? '_blank' : undefined}
-            rel={'external' in link && link.external ? 'noopener noreferrer' : undefined}
-            class="link-muted text-sm"
-          >
+          <a href={link.href} class="link-muted text-sm font-medium">
             {link.label}
           </a>
         ))
@@ -30,21 +24,19 @@ import LogoMark from './LogoMark.astro';
     </nav>
 
     <div class="flex items-center gap-3">
-      <details class="relative md:hidden">
-        <summary class="list-none cursor-pointer rounded-md border border-border bg-surface px-3 py-2 text-sm font-medium text-ink [&::-webkit-details-marker]:hidden">
+      <details class="relative lg:hidden">
+        <summary class="flex min-h-11 cursor-pointer list-none items-center rounded-full border border-border bg-surface px-4 text-sm font-medium text-ink [&::-webkit-details-marker]:hidden">
           Menú
         </summary>
         <nav
-          class="absolute right-0 top-full z-50 mt-2 min-w-[12rem] rounded-lg border border-border bg-surface py-2 shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+          class="absolute right-0 top-full z-50 mt-2 min-w-[13rem] overflow-hidden rounded-2xl border border-border bg-surface p-2 shadow-[0_18px_50px_rgba(17,24,32,0.14)]"
           aria-label="Menú móvil"
         >
           {
             navLinks.map((link) => (
               <a
                 href={link.href}
-                target={'external' in link && link.external ? '_blank' : undefined}
-                rel={'external' in link && link.external ? 'noopener noreferrer' : undefined}
-                class="block px-4 py-2 text-sm text-muted hover:bg-canvas-alt hover:text-ink"
+                class="block rounded-xl px-4 py-3 text-sm font-medium text-muted hover:bg-canvas-alt hover:text-ink"
               >
                 {link.label}
               </a>
@@ -52,7 +44,34 @@ import LogoMark from './LogoMark.astro';
           }
         </nav>
       </details>
-      <a href="#contacto" class="btn-primary hidden sm:inline-flex"> Agendar consulta </a>
+      <a href="#contacto" class="btn-primary px-4 sm:px-6">
+        <span class="sm:hidden">Contacto</span>
+        <span class="hidden sm:inline">Contanos tu proceso</span>
+        <span aria-hidden="true">↗</span>
+      </a>
     </div>
   </div>
 </header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('header details');
+
+  if (menu) {
+    for (const link of menu.querySelectorAll('a')) {
+      link.addEventListener('click', () => menu.removeAttribute('open'));
+    }
+
+    document.addEventListener('click', (event) => {
+      if (menu.open && event.target instanceof Node && !menu.contains(event.target)) {
+        menu.removeAttribute('open');
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.removeAttribute('open');
+        menu.querySelector('summary')?.focus();
+      }
+    });
+  }
+</script>

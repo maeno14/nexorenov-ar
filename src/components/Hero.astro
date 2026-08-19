@@ -2,40 +2,115 @@
 import { site } from '../config/site';
 ---
 
-<section class="section-pad">
-  <div class="container-nexo">
-    <div class="reveal max-w-4xl" style="--index: 0">
-      <span class="tag tag-blue">Consultoría de software · B2B</span>
-      <h1 class="heading-display mt-6 text-4xl font-semibold sm:text-5xl lg:text-[3.25rem]">
-        Aceleramos procesos administrativos en la era de la modernización y la IA
-      </h1>
-      <p class="mt-6 max-w-2xl text-lg text-muted">
-        {site.name} acompaña a empresas que necesitan ordenar operaciones, integrar
-        sistemas y adoptar innovación con criterio — con diagnóstico, implementación y
-        software a medida cuando hace falta.
-      </p>
-      <div class="mt-10 flex flex-wrap gap-3">
-        <a href="#contacto" class="btn-primary"> Agendar consulta </a>
-        <a href="#servicios" class="btn-secondary"> Ver servicios </a>
-      </div>
-    </div>
+<section class="relative overflow-hidden px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:px-12 lg:pb-28 lg:pt-24">
+  <div class="pointer-events-none absolute -right-40 -top-48 h-[34rem] w-[34rem] rounded-full bg-blue/10 blur-3xl" aria-hidden="true"></div>
 
-    <div class="reveal mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" style="--index: 1">
-      <div class="card card-hover p-6">
-        <p class="eyebrow">Enfoque</p>
-        <p class="mt-2 text-lg font-medium text-ink">Procesos admin.</p>
+  <div class="container-nexo">
+    <div class="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-14">
+      <div class="reveal relative z-10" style="--index: 0">
+        <div class="flex items-center gap-3">
+          <span class="h-2 w-2 rounded-full bg-blue" aria-hidden="true"></span>
+          <p class="eyebrow">Consultoría de software para operaciones B2B</p>
+        </div>
+
+        <h1 class="heading-display mt-7 max-w-4xl text-[clamp(3.25rem,6vw,5.8rem)] font-medium">
+          Procesos claros. <span class="text-blue">Sistemas que trabajan.</span>
+        </h1>
+
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
+          {site.name} transforma tareas administrativas sostenidas por planillas, mails y
+          sistemas aislados en operaciones conectadas, trazables y listas para crecer.
+        </p>
+
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href="#contacto" class="btn-primary">
+            Contanos tu proceso
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="#productos" class="btn-secondary">
+            Ver un producto real
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <dl class="mt-12 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
+          <div class="bg-surface p-4">
+            <dt class="eyebrow">01</dt>
+            <dd class="mt-2 text-sm font-medium text-ink">Diagnóstico</dd>
+          </div>
+          <div class="bg-surface p-4">
+            <dt class="eyebrow">02</dt>
+            <dd class="mt-2 text-sm font-medium text-ink">Integración</dd>
+          </div>
+          <div class="bg-surface p-4">
+            <dt class="eyebrow">03</dt>
+            <dd class="mt-2 text-sm font-medium text-ink">Implementación</dd>
+          </div>
+          <div class="bg-surface p-4">
+            <dt class="eyebrow">04</dt>
+            <dd class="mt-2 text-sm font-medium text-ink">Adopción</dd>
+          </div>
+        </dl>
       </div>
-      <div class="card card-hover p-6">
-        <p class="eyebrow">Cliente</p>
-        <p class="mt-2 text-lg font-medium text-ink">Empresas B2B</p>
-      </div>
-      <div class="card card-hover p-6">
-        <p class="eyebrow">Momento</p>
-        <p class="mt-2 text-lg font-medium text-ink">Modernización</p>
-      </div>
-      <div class="card card-hover p-6">
-        <p class="eyebrow">Innovación</p>
-        <p class="mt-2 text-lg font-medium text-ink">IA aplicada</p>
+
+      <div class="reveal relative mx-auto w-full max-w-[36rem] lg:mx-0 lg:mt-8" style="--index: 2">
+        <div class="absolute -inset-3 rotate-2 rounded-[2rem] border border-blue/15 bg-blue/5" aria-hidden="true"></div>
+        <div class="surface-grid relative overflow-hidden rounded-[1.7rem] border border-white/10 bg-night p-4 text-white shadow-[0_30px_90px_rgba(13,21,28,0.25)] sm:p-6">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4">
+            <div class="flex items-center gap-2" aria-hidden="true">
+              <span class="h-2.5 w-2.5 rounded-full bg-white/20"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-white/20"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-lime"></span>
+            </div>
+            <span class="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-white/65">Representación del proceso</span>
+          </div>
+
+          <div class="py-6">
+            <p class="font-mono text-[0.68rem] uppercase tracking-[0.13em] text-lime">Flujo administrativo</p>
+            <h2 class="mt-2 text-xl font-medium tracking-[-0.02em] sm:text-2xl">Constancias en lote</h2>
+
+            <div class="mt-6 rounded-2xl border border-white/10 bg-white/[0.045] p-4">
+              <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue text-xs font-semibold">XLS</div>
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm font-medium">lote_cuits.xlsx</p>
+                  <p class="mt-0.5 text-xs text-white/65">Archivo recibido</p>
+                </div>
+                <span class="tag tag-dark">Listo</span>
+              </div>
+            </div>
+
+            <ol class="relative mt-5 space-y-2 before:absolute before:bottom-5 before:left-[1.18rem] before:top-5 before:w-px before:bg-white/12">
+              <li class="relative flex items-center gap-3 rounded-xl bg-white/[0.035] p-3">
+                <span class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime text-sm font-bold text-night">✓</span>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Validar la información</p>
+                  <p class="text-xs text-white/65">Formato y CUIT revisados</p>
+                </div>
+              </li>
+              <li class="relative flex items-center gap-3 rounded-xl border border-blue/40 bg-blue/15 p-3">
+                <span class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">02</span>
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Procesar el lote</p>
+                  <p class="text-xs text-white/70">Consulta en curso</p>
+                </div>
+                <span class="h-2 w-2 animate-pulse rounded-full bg-lime" aria-hidden="true"></span>
+              </li>
+              <li class="relative flex items-center gap-3 rounded-xl bg-white/[0.035] p-3">
+                <span class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-night-soft text-xs text-white/65">03</span>
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-white/80">Entregar los documentos</p>
+                  <p class="text-xs text-white/60">PDFs agrupados en un ZIP</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4 text-xs text-white/65">
+            <span>Producto propio: constanci.ar</span>
+            <span class="flex items-center gap-2 text-white/70"><span class="h-1.5 w-1.5 rounded-full bg-lime"></span> Web operativa</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

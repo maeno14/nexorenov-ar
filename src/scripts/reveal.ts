@@ -2,6 +2,11 @@ function initReveal(): void {
   const elements = document.querySelectorAll<HTMLElement>('.reveal');
   if (elements.length === 0) return;
 
+  if (!('IntersectionObserver' in window)) {
+    for (const el of elements) el.classList.add('is-visible');
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
@@ -15,7 +20,12 @@ function initReveal(): void {
   );
 
   for (const el of elements) {
-    observer.observe(el);
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 40 && rect.bottom > 0) {
+      el.classList.add('is-visible');
+    } else {
+      observer.observe(el);
+    }
   }
 }
 

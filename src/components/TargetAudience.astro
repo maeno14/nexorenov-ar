@@ -1,50 +1,58 @@
 ---
-const audiences = [
+const signals = [
   {
-    title: 'PyMEs en crecimiento',
-    description:
-      'Organizaciones que escalan y necesitan dejar atrás planillas, mails y carpetas compartidas en administración.',
+    number: '01',
+    title: 'La planilla se volvió el sistema',
+    description: 'La operación depende de archivos que sólo algunas personas saben mantener.',
   },
   {
-    title: 'Empresas medianas',
-    description:
-      'Equipos con procesos repartidos entre áreas, sucursales o sistemas que ya no se hablan entre sí.',
+    number: '02',
+    title: 'El mail funciona como aprobación',
+    description: 'Los estados, responsables y decisiones quedan repartidos entre cadenas de mensajes.',
   },
   {
-    title: 'Grandes empresas',
-    description:
-      'Unidades administrativas que buscan modernizar sin reemplazar de golpe todo el ecosistema existente.',
+    number: '03',
+    title: 'Los sistemas no comparten datos',
+    description: 'El equipo copia información entre herramientas y vuelve a controlar cada resultado.',
   },
   {
-    title: 'Sectores regulados',
-    description:
-      'Industrias con exigencias de trazabilidad, auditoría y cumplimiento en cada paso del proceso.',
+    number: '04',
+    title: 'Crecer agrega trabajo manual',
+    description: 'Cada cliente, sucursal o documento nuevo aumenta tareas que ya deberían estar resueltas.',
   },
 ];
 ---
 
-<section id="clientes" class="section-pad border-t border-border">
+<section id="clientes" class="section-pad border-t border-border bg-canvas">
   <div class="container-nexo">
-    <div class="reveal mx-auto max-w-2xl text-center" style="--index: 0">
-      <p class="eyebrow">Para quién</p>
-      <h2 class="heading-display mt-3 text-3xl font-semibold sm:text-4xl">
-        Empresas con procesos administrativos manuales o fragmentados
-      </h2>
-      <p class="mt-4 text-lg text-muted">
-        Trabajamos con dirección, operaciones, administración y finanzas cuando el desafío
-        es ganar velocidad y control en la gestión del día a día.
+    <div class="reveal grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20" style="--index: 0">
+      <div>
+        <p class="eyebrow">Cuándo intervenir</p>
+        <h2 class="heading-display mt-4 text-4xl font-medium sm:text-5xl lg:text-[3.6rem]">
+          El problema aparece antes que el nuevo sistema.
+        </h2>
+      </div>
+      <p class="max-w-xl text-lg leading-relaxed text-muted lg:justify-self-end">
+        Trabajamos con dirección, operaciones, administración y finanzas cuando el crecimiento
+        empieza a exponer procesos manuales, información dispersa o falta de trazabilidad.
       </p>
     </div>
 
-    <div class="mt-14 grid gap-4 sm:grid-cols-2">
+    <ol class="mt-14 divide-y divide-border border-y border-border">
       {
-        audiences.map((item, i) => (
-          <article class="card card-hover reveal p-7" style={`--index: ${i + 1}`}>
-            <h3 class="text-xl font-medium text-ink">{item.title}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted">{item.description}</p>
-          </article>
+        signals.map((signal, i) => (
+          <li class="reveal grid gap-4 py-6 sm:grid-cols-[4rem_0.8fr_1.2fr] sm:items-center sm:gap-8 lg:py-8" style={`--index: ${i + 1}`}>
+            <span class="font-mono text-xs text-blue">{signal.number}</span>
+            <h3 class="text-lg font-semibold tracking-[-0.02em] text-ink sm:text-xl">{signal.title}</h3>
+            <p class="max-w-xl text-sm leading-relaxed text-muted">{signal.description}</p>
+          </li>
         ))
       }
+    </ol>
+
+    <div class="reveal mt-8 flex flex-wrap items-center justify-between gap-4" style="--index: 5">
+      <p class="text-sm text-muted">PyMEs en crecimiento, empresas medianas y operaciones reguladas.</p>
+      <a href="#contacto" class="text-sm font-semibold text-blue hover:underline">Revisemos tu caso <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>

@@ -1,8 +1,8 @@
 export const site = {
   name: 'Nexo Celer',
-  title: 'Nexo Celer — Consultoría de software B2B',
+  title: 'Nexo Celer | Procesos claros, sistemas que trabajan',
   description:
-    'Consultoría de software para empresas que aceleran procesos administrativos en etapas de modernización e innovación con IA.',
+    'Consultoría de software para conectar, automatizar y ordenar procesos administrativos B2B.',
   url: 'https://nexoceler.ar',
   locale: 'es_AR',
   email: 'mariano.argentato@gmail.com',
@@ -21,8 +21,8 @@ export const productExternalUrl = site.product.url;
 
 export const navLinks = [
   { href: '#servicios', label: 'Servicios' },
-  { href: '#clientes', label: 'Para quién' },
-  { href: '#proceso', label: 'Cómo trabajamos' },
-  { href: '#productos', label: 'Productos' },
+  { href: '#clientes', label: 'Cuándo intervenir' },
+  { href: '#proceso', label: 'Método' },
+  { href: '#productos', label: 'Producto' },
   { href: '#contacto', label: 'Contacto' },
 ] as const;
