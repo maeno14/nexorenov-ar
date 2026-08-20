@@ -20,9 +20,9 @@ export const site = {
 export const productExternalUrl = site.product.url;
 
 export const navLinks = [
-  { href: '#servicios', label: 'Servicios' },
   { href: '#clientes', label: 'Cuándo intervenir' },
-  { href: '#proceso', label: 'Método' },
+  { href: '#servicios', label: 'Servicios' },
   { href: '#productos', label: 'Producto' },
+  { href: '#proceso', label: 'Método' },
   { href: '#contacto', label: 'Contacto' },
 ] as const;

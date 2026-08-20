@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada | Nexo Celer"
+  description="La página que buscás no existe o ya no está disponible."
+  noindex
+>
+  <main id="contenido" class="flex min-h-[70vh] items-center px-5 py-20 sm:px-8 lg:px-12">
+    <section class="container-nexo">
+      <p class="text-sm font-semibold text-blue">Error 404</p>
+      <h1 class="heading-display mt-5 max-w-2xl text-5xl font-medium sm:text-6xl">
+        Esta página no está disponible.
+      </h1>
+      <p class="mt-6 max-w-lg text-lg leading-relaxed text-muted">
+        El enlace puede estar vencido o la dirección puede tener un error.
+      </p>
+      <a href="/" class="btn-primary mt-9 w-fit">Volver al inicio <span class="btn-arrow" aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+</BaseLayout>

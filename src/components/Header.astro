@@ -4,9 +4,9 @@ import LogoMark from './LogoMark.astro';
 ---
 
 <header class="sticky top-0 z-50 border-b border-border/80 bg-canvas/90 backdrop-blur-xl">
-  <div class="container-nexo flex min-h-[4.75rem] items-center justify-between gap-5 px-5 sm:px-8 lg:px-12">
-    <a href="/" class="group flex items-center gap-3 rounded-lg" aria-label={`${site.name}, inicio`}>
-      <LogoMark size={38} class="transition group-hover:rotate-[-3deg]" />
+  <div class="container-nexo flex min-h-[4.5rem] items-center justify-between gap-2 px-4 sm:gap-5 sm:px-8 lg:px-12">
+    <a href="/" class="group flex shrink-0 items-center gap-2 rounded-lg sm:gap-3" aria-label={`${site.name}, inicio`}>
+      <LogoMark size={36} class="transition group-hover:rotate-[-3deg]" />
       <span class="hidden leading-[0.95] sm:block">
         <span class="block text-base font-semibold tracking-[-0.03em] text-ink">Nexo</span>
         <span class="block font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">Celer</span>
@@ -23,13 +23,13 @@ import LogoMark from './LogoMark.astro';
       }
     </nav>
 
-    <div class="flex items-center gap-3">
-      <details class="relative lg:hidden">
-        <summary class="flex min-h-11 cursor-pointer list-none items-center rounded-full border border-border bg-surface px-4 text-sm font-medium text-ink [&::-webkit-details-marker]:hidden">
+    <div class="flex shrink-0 items-center gap-2 sm:gap-3">
+      <details class="relative shrink-0 lg:hidden">
+        <summary class="flex min-h-11 cursor-pointer list-none items-center rounded-full border border-border bg-surface px-3 text-sm font-medium text-ink sm:px-4 [&::-webkit-details-marker]:hidden">
           Menú
         </summary>
         <nav
-          class="absolute right-0 top-full z-50 mt-2 min-w-[13rem] overflow-hidden rounded-2xl border border-border bg-surface p-2 shadow-[0_18px_50px_rgba(17,24,32,0.14)]"
+          class="absolute left-0 top-full z-50 mt-2 w-[13rem] max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-border bg-surface p-2 shadow-[0_18px_50px_rgba(17,24,32,0.14)] sm:left-auto sm:right-0 sm:w-auto sm:min-w-[13rem] sm:max-w-none"
           aria-label="Menú móvil"
         >
           {
@@ -44,8 +44,8 @@ import LogoMark from './LogoMark.astro';
           }
         </nav>
       </details>
-      <a href="#contacto" class="btn-primary px-4 sm:px-6">
-        <span class="sm:hidden">Contacto</span>
+      <a href="#contacto" class="btn-primary px-3 sm:px-6">
+        <span class="sm:hidden">Revisar proceso</span>
         <span class="hidden sm:inline">Revisar un proceso</span>
         <span class="btn-arrow" aria-hidden="true">↗</span>
       </a>

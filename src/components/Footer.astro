@@ -6,35 +6,35 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-border bg-canvas">
-  <div class="container-nexo px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
-    <div class="grid gap-10 md:grid-cols-[1fr_auto] md:items-start">
+  <div class="container-nexo px-5 py-9 sm:px-8 sm:py-11 lg:px-12">
+    <div class="grid gap-7 md:grid-cols-[1fr_auto] md:items-start">
       <div class="flex max-w-lg gap-4">
         <LogoMark size={42} class="shrink-0" />
         <div>
           <p class="text-lg font-semibold tracking-[-0.03em] text-ink">{site.name}</p>
           <p class="mt-2 text-sm leading-relaxed text-muted">
-            {site.description}
+            Software para operaciones administrativas.
           </p>
         </div>
       </div>
 
-      <nav class="grid grid-cols-2 gap-x-10 gap-y-3 text-sm sm:grid-cols-3" aria-label="Pie de página">
-        <a href="#servicios" class="link-muted">Servicios</a>
-        <a href="#proceso" class="link-muted">Método</a>
-        <a href="#contacto" class="link-muted">Contacto</a>
+      <nav class="grid grid-cols-2 gap-x-10 gap-y-1 text-sm sm:grid-cols-3" aria-label="Pie de página">
+        <a href="#servicios" class="link-muted py-1">Servicios</a>
+        <a href="#proceso" class="link-muted py-1">Método</a>
+        <a href="#contacto" class="link-muted py-1">Contacto</a>
         <a
           href={productExternalUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="link-muted"
+          class="link-muted py-1"
         >
           {site.product.name}
         </a>
-        <a href={`mailto:${site.email}`} class="link-muted sm:col-span-2">Email</a>
+        <a href={`mailto:${site.email}`} class="link-muted col-span-2 py-1">Email</a>
       </nav>
     </div>
 
-    <div class="mt-12 flex flex-col gap-3 border-t border-border pt-6 font-mono text-[0.65rem] uppercase tracking-[0.08em] text-muted sm:flex-row sm:items-center sm:justify-between">
+    <div class="mt-8 flex flex-col gap-3 border-t border-border pt-6 font-mono text-[0.65rem] uppercase tracking-[0.08em] text-muted sm:flex-row sm:items-center sm:justify-between">
       <p>© {year} {site.name}</p>
       <p>Argentina · nexoceler.ar</p>
     </div>

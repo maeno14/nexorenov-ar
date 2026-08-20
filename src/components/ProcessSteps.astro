@@ -6,6 +6,7 @@ const steps = [
     description:
       'Entrevistamos a quienes operan el proceso y revisamos flujos, datos, excepciones y riesgos.',
     result: 'Mapa del proceso actual',
+    validation: 'Revisado con el equipo',
   },
   {
     step: '02',
@@ -13,6 +14,7 @@ const steps = [
     description:
       'Definimos la solución, las integraciones necesarias y un alcance que se pueda validar por etapas.',
     result: 'Arquitectura y plan de trabajo',
+    validation: 'Alcance validado',
   },
   {
     step: '03',
@@ -20,6 +22,7 @@ const steps = [
     description:
       'Construimos y probamos con datos y usuarios del negocio antes de mover la operación.',
     result: 'Sistema funcionando',
+    validation: 'Probado con casos reales',
   },
   {
     step: '04',
@@ -27,49 +30,133 @@ const steps = [
     description:
       'Acompañamos al equipo, medimos el uso y ajustamos el sistema según lo que pasa en la práctica.',
     result: 'Seguimiento y soporte',
+    validation: 'Uso medido y ajustado',
   },
 ];
 ---
 
-<section id="proceso" class="section-pad overflow-hidden bg-night text-white">
+<section id="proceso" class="section-pad section-pad-feature overflow-hidden bg-night text-white">
   <div class="container-nexo">
-    <div class="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-24">
-      <div class="reveal lg:sticky lg:top-28 lg:self-start" style="--index: 0">
-        <p class="eyebrow eyebrow-light">Cómo trabajamos</p>
-        <h2 class="mt-4 max-w-xl font-serif text-4xl font-medium leading-[1] tracking-[-0.04em] sm:text-5xl lg:text-[3.8rem]">
-          Cada etapa termina con algo que podés revisar.
-        </h2>
-        <p class="mt-6 max-w-lg text-lg leading-relaxed text-white/75">
-          El proyecto avanza con entregables concretos. Las decisiones quedan visibles antes
-          de pasar a la etapa siguiente.
-        </p>
+    <header class="process-intro reveal" style="--index: 0">
+      <h2 class="max-w-4xl font-serif text-4xl font-medium leading-[1] tracking-[-0.04em] sm:text-5xl lg:text-[4rem]">
+        Cada etapa termina con algo que podés revisar.
+      </h2>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-white/75 sm:mt-6 sm:text-xl">
+        El entregable y las decisiones quedan visibles. El proyecto no avanza hasta que el
+        equipo los revisa.
+      </p>
+    </header>
 
-        <p class="mt-9 max-w-sm border-l border-lime pl-4 text-sm leading-relaxed text-white/65">
-          No pasamos de etapa hasta que el equipo revisa las decisiones.
-        </p>
-      </div>
-
-      <ol class="border-t border-white/20">
-        {
-          steps.map((item, i) => (
-            <li class="process-row reveal border-b border-white/20 py-7 sm:py-8" style={`--index: ${i + 1}`}>
-              <div class="grid gap-5 sm:grid-cols-[3.25rem_1fr] sm:gap-6 lg:grid-cols-[3.25rem_1fr_0.62fr]">
-                <span class="font-mono text-xs text-lime">
-                  {item.step}
-                </span>
-                <div>
-                  <h3 class="text-xl font-semibold tracking-[-0.025em] sm:text-2xl">{item.title}</h3>
-                  <p class="mt-3 max-w-xl text-sm leading-relaxed text-white/78">{item.description}</p>
-                </div>
-                <div class="sm:col-start-2 lg:col-start-auto lg:text-right">
-                  <p class="font-mono text-[0.58rem] uppercase tracking-[0.13em] text-white/70">Resultado</p>
-                  <p class="mt-2 text-sm font-medium text-white/85">{item.result}</p>
-                </div>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
+    <ol class="process-timeline mt-12 sm:mt-16 lg:mt-20" aria-label="Etapas del proceso">
+      {
+        steps.map((item, i) => (
+          <li class="process-step reveal" style={`--index: ${i + 1}`}>
+            <span class="process-step-marker font-mono text-sm font-medium">
+              {item.step}
+            </span>
+            <div class="process-step-content">
+              <h3 class="text-xl font-semibold leading-tight tracking-[-0.025em] sm:text-2xl">
+                {item.title}
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-white/75 sm:text-base">{item.description}</p>
+              <p class="process-result mt-5 text-sm font-medium leading-relaxed text-white sm:mt-6">
+                <span class="font-mono text-lime" aria-hidden="true">↳</span>
+                {item.result}
+              </p>
+              <p class="process-validation mt-3 font-mono text-xs leading-relaxed text-lime/90 sm:mt-4">
+                <span aria-hidden="true">✓</span>
+                {item.validation}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
   </div>
 </section>
+
+<style>
+  .process-timeline {
+    --process-gap: clamp(1.25rem, 2.6vw, 2.75rem);
+    display: grid;
+    gap: 0;
+  }
+
+  .process-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    column-gap: 1rem;
+    min-width: 0;
+    padding-bottom: 2.75rem;
+  }
+
+  .process-step:not(:last-child)::after {
+    position: absolute;
+    z-index: 0;
+    top: 2rem;
+    bottom: 0;
+    left: 1rem;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.28);
+    content: '';
+  }
+
+  .process-step-marker {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 1px solid rgba(198, 243, 107, 0.8);
+    background: var(--color-night);
+    color: var(--color-lime);
+    line-height: 1;
+  }
+
+  .process-step-content {
+    min-width: 0;
+  }
+
+  .process-result {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .process-validation {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 1024px) {
+    .process-timeline {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      column-gap: var(--process-gap);
+    }
+
+    .process-step {
+      display: block;
+      padding-bottom: 0;
+    }
+
+    .process-step:not(:last-child)::after {
+      top: 1rem;
+      right: calc(-50% - var(--process-gap));
+      bottom: auto;
+      left: 50%;
+      width: auto;
+      height: 1px;
+    }
+
+    .process-step-marker {
+      margin-inline: auto;
+    }
+
+    .process-step-content {
+      margin-top: 2rem;
+    }
+  }
+</style>

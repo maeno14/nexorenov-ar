@@ -2,27 +2,13 @@ function initReveal(): void {
   const elements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
   if (elements.length === 0) return;
 
-  const pending = new Set(elements);
-
   const reveal = (element: HTMLElement): void => {
     element.classList.add('is-visible');
-    pending.delete(element);
-  };
-
-  const revealInViewport = (): void => {
-    for (const element of pending) {
-      const rect = element.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 40 && rect.bottom > 0) reveal(element);
-    }
-
-    if (pending.size === 0) {
-      window.removeEventListener('scroll', revealInViewport);
-      window.removeEventListener('resize', revealInViewport);
-    }
   };
 
   if (!('IntersectionObserver' in window)) {
     for (const element of elements) reveal(element);
+    document.documentElement.dataset.reveal = 'active';
     return;
   }
 
@@ -39,12 +25,15 @@ function initReveal(): void {
   );
 
   for (const element of elements) {
-    observer.observe(element);
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 40 && rect.bottom > 0) {
+      reveal(element);
+    } else {
+      observer.observe(element);
+    }
   }
 
-  window.addEventListener('scroll', revealInViewport, { passive: true });
-  window.addEventListener('resize', revealInViewport);
-  revealInViewport();
+  document.documentElement.dataset.reveal = 'active';
 }
 
 if (document.readyState === 'loading') {

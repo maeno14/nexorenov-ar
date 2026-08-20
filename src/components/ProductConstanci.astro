@@ -1,106 +1,194 @@
 ---
 import { site, productExternalUrl } from '../config/site';
 
-const flow = [
-  {
-    step: '01',
-    title: 'Subir el Excel',
-    description: 'Una lista de CUITs en el formato de la plantilla.',
-  },
-  {
-    step: '02',
-    title: 'Procesar el lote',
-    description: 'Cada constancia se consulta en AFIP sin cargar los CUITs de a uno.',
-  },
-  {
-    step: '03',
-    title: 'Descargar los resultados',
-    description: 'Los PDFs oficiales quedan agrupados en un ZIP y el historial conserva el detalle.',
-  },
+const productDetails = [
+  { label: 'Entrada', value: 'Excel con una lista de CUITs' },
+  { label: 'Control', value: 'Estado e historial de cada lote' },
+  { label: 'Salida', value: 'PDFs oficiales dentro de un ZIP' },
 ];
 ---
 
-<section id="productos" class="section-pad border-t border-border bg-surface">
+<section id="productos" class="section-pad section-pad-compact border-b border-border bg-surface">
   <div class="container-nexo">
-    <div class="reveal grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-20" style="--index: 0">
+    <div class="reveal grid gap-7 lg:grid-cols-[1.08fr_0.72fr] lg:items-end lg:gap-20" style="--index: 0">
       <div>
-        <p class="eyebrow">Producto propio</p>
-        <h2 class="heading-display mt-4 max-w-3xl text-4xl font-medium sm:text-5xl lg:text-[3.8rem]">
-          Un problema administrativo convertido en producto.
+        <h2 class="heading-display max-w-3xl text-[2.15rem] font-medium sm:text-5xl lg:text-[3.85rem]">
+          Un Excel entra. Las constancias salen ordenadas.
         </h2>
       </div>
       <p class="max-w-lg text-lg leading-relaxed text-muted lg:justify-self-end">
-        {site.product.name} resuelve una tarea concreta: obtener constancias AFIP en lote a
-        partir de un Excel y entregarlas listas para descargar.
+        {site.product.name} procesa listas de CUITs, descarga los PDFs oficiales y guarda el
+        estado y el historial de cada lote.
       </p>
     </div>
 
-    <article class="product-case reveal mt-14 border-y border-border" style="--index: 1">
-      <div class="grid lg:grid-cols-[0.72fr_1.28fr]">
-        <div class="flex flex-col justify-between border-b border-border py-9 lg:border-b-0 lg:border-r lg:py-12 lg:pr-14">
+    <article class="product-case reveal mt-10 overflow-hidden border border-border bg-canvas sm:mt-12" style="--index: 1">
+      <div class="grid lg:grid-cols-[0.64fr_1.36fr]">
+        <div class="flex flex-col justify-between border-b border-border p-5 sm:p-8 lg:border-b-0 lg:border-r lg:p-8 xl:p-10">
           <div>
-            <p class="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-blue">Caso 001</p>
-            <h3 class="mt-4 text-4xl font-semibold tracking-[-0.05em] text-ink sm:text-5xl">{site.product.name}</h3>
-            <p class="mt-5 max-w-md text-lg leading-relaxed text-muted">
-              Lo construimos para estudios contables y equipos que trabajan con lotes de CUITs.
+            <h3 class="whitespace-nowrap text-[clamp(2.25rem,3.6vw,3.6rem)] font-semibold leading-[0.92] tracking-[-0.055em] text-ink">{site.product.name}</h3>
+            <p class="mt-3 max-w-md text-base leading-relaxed text-muted sm:mt-5 sm:text-lg">
+              Lo construimos para estudios contables y equipos que trabajan con constancias en volumen.
+            </p>
+
+            <dl class="mt-5 border-y border-border sm:mt-7" aria-label="Entrada, control y salida de constanci.ar">
+              {
+                productDetails.map((detail) => (
+                  <div class="grid grid-cols-[4.25rem_1fr] gap-4 border-b border-border py-2.5 text-sm last:border-b-0 sm:py-3">
+                    <dt class="font-mono text-[0.58rem] uppercase tracking-[0.1em] text-blue">{detail.label}</dt>
+                    <dd class="text-ink">{detail.value}</dd>
+                  </div>
+                ))
+              }
+            </dl>
+
+            <p class="mt-4 text-sm leading-relaxed text-muted sm:mt-5">
+              Funciona desde el navegador y no requiere clave fiscal.
             </p>
           </div>
 
-          <div class="mt-10">
-            <dl class="grid gap-4 border-l-2 border-blue pl-5 text-sm">
-              <div>
-                <dt class="font-mono text-[0.6rem] uppercase tracking-[0.11em] text-muted">Entrada</dt>
-                <dd class="mt-1 font-medium text-ink">Excel con CUITs</dd>
-              </div>
-              <div>
-                <dt class="font-mono text-[0.6rem] uppercase tracking-[0.11em] text-muted">Salida</dt>
-                <dd class="mt-1 font-medium text-ink">PDFs oficiales dentro de un ZIP</dd>
-              </div>
-            </dl>
-
-            <a
-              href={productExternalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary mt-9 w-fit"
-            >
-              Abrir {site.product.name}
-              <span class="btn-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
+          <a
+            href={productExternalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary mt-6 w-fit sm:mt-8"
+          >
+            Ver producto en vivo
+            <span class="btn-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
 
-        <div class="py-9 lg:py-12 lg:pl-14">
-          <div class="flex items-center justify-between gap-5 border-b border-border pb-5">
-            <p class="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-muted">Cómo funciona</p>
-            <p class="text-xs text-muted">100% web · sin clave fiscal</p>
-          </div>
+        <div class="bg-blue-soft p-2 sm:p-5 lg:p-6 xl:p-8">
+          <figure class="border border-blue/15 bg-white shadow-[0_18px_52px_rgba(17,24,32,0.1)]">
+            <figcaption class="flex flex-wrap items-center justify-between gap-3 border-b border-border px-3 py-2.5 sm:px-5 sm:py-3">
+              <div class="flex items-center gap-2.5">
+                <span class="flex h-7 w-7 items-center justify-center bg-blue text-[0.55rem] font-bold text-white" aria-hidden="true">C</span>
+                <span class="text-sm font-semibold tracking-[-0.02em] text-ink">constanci.ar</span>
+              </div>
+              <span class="font-mono text-[0.56rem] uppercase tracking-[0.1em] text-blue">Datos demostrativos</span>
+            </figcaption>
 
-          <div class="product-flow relative">
-            <span class="product-flow-line absolute bottom-10 left-[1.15rem] top-10 w-px origin-top bg-blue" aria-hidden="true"></span>
-            <ol>
-              {
-                flow.map((item, i) => (
-                  <li class="product-flow-step relative grid grid-cols-[2.4rem_1fr] gap-5 border-b border-border py-7 last:border-b-0" style={`--flow-index: ${i}`}>
-                    <span class="product-flow-node relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue/30 bg-surface font-mono text-[0.64rem] text-blue">
-                      {item.step}
-                    </span>
-                    <div>
-                      <h4 class="text-xl font-semibold tracking-[-0.025em] text-ink">{item.title}</h4>
-                      <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted">{item.description}</p>
-                    </div>
-                  </li>
-                ))
-              }
-            </ol>
-          </div>
+            <div class="p-3 sm:p-6">
+              <div class="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p class="font-mono text-[0.6rem] uppercase tracking-[0.1em] text-muted">Ejemplo de lote</p>
+                  <h4 class="mt-2 text-lg font-semibold tracking-[-0.025em] text-ink sm:text-xl">lote_cuits.xlsx</h4>
+                </div>
+                <span class="border-l-2 border-blue pl-3 font-mono text-[0.58rem] uppercase tracking-[0.1em] text-blue">En curso</span>
+              </div>
 
-          <p class="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
-            Los CUITs inválidos quedan informados en el historial. El equipo puede revisar el
-            resultado antes de volver a procesar.
-          </p>
+              <div class="mt-5 border-y border-border py-4 sm:mt-7 sm:py-5">
+                <div class="flex items-end justify-between gap-4">
+                  <div>
+                    <p class="text-xs text-muted">Constancias procesadas</p>
+                    <p class="mt-1 text-4xl font-semibold tracking-[-0.05em] text-ink sm:text-5xl">
+                      847 <span class="text-lg font-normal tracking-[-0.02em] text-muted">/ 1.000</span>
+                    </p>
+                  </div>
+                  <span class="pb-1 font-mono text-sm font-medium text-blue">84,7%</span>
+                </div>
+                <div class="mt-4 h-1.5 overflow-hidden bg-border">
+                  <div class="product-progress h-full w-[84.7%] origin-left bg-blue"></div>
+                </div>
+              </div>
+
+              <dl class="product-stats mt-3 sm:mt-5">
+                <div class="product-stat product-stat-primary">
+                  <dt>Exitosas</dt>
+                  <dd class="text-[#17643a]">812</dd>
+                </div>
+                <div class="product-stat">
+                  <dt>Pendientes</dt>
+                  <dd class="text-blue">153</dd>
+                </div>
+                <div class="product-stat">
+                  <dt>Errores</dt>
+                  <dd class="text-[#8a5a00]">35</dd>
+                </div>
+              </dl>
+
+              <div class="product-evidence mt-4 border border-[#d7bc78] bg-[#fffaf0] p-3 sm:mt-5 sm:p-4" role="note" aria-label="Evidencia operativa que requiere revisión">
+                <p class="font-mono text-[0.58rem] font-semibold uppercase tracking-[0.1em] text-[#8a5a00]">Requiere revisión</p>
+                <p class="mt-2 text-sm font-medium leading-snug text-ink">35 CUITs tienen formato inválido</p>
+                <p class="mt-2 text-sm leading-snug text-muted">
+                  <span class="font-medium text-ink">Siguiente acción:</span> Corregir la planilla y volver a procesar
+                </p>
+              </div>
+
+              <div class="mt-3 flex items-center gap-3 border-t border-border pt-3 sm:mt-5 sm:pt-4">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center bg-ink text-xs text-white" aria-hidden="true">↓</span>
+                <p class="text-sm font-medium text-ink">ZIP listo para descargar al finalizar</p>
+              </div>
+            </div>
+          </figure>
         </div>
       </div>
     </article>
   </div>
 </section>
+
+<style>
+  .product-stats {
+    display: grid;
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+    border-left: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .product-stat {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    padding: 0.65rem;
+    background: var(--color-surface);
+  }
+
+  .product-stat-primary {
+    grid-row: span 2;
+    justify-content: space-between;
+    background: #edf8f1;
+  }
+
+  .product-stat dt {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .product-stat dd {
+    margin-top: 0.3rem;
+    font-size: 1.25rem;
+    font-weight: 650;
+    line-height: 1;
+  }
+
+  .product-stat-primary dd {
+    font-size: 2rem;
+    letter-spacing: -0.04em;
+  }
+
+  @media (min-width: 640px) {
+    .product-stat {
+      min-height: 4.2rem;
+      padding: 0.95rem 1rem;
+    }
+
+    .product-stat dt {
+      font-size: 0.54rem;
+      letter-spacing: 0.08em;
+    }
+
+    .product-stat dd {
+      font-size: 1.45rem;
+    }
+
+    .product-stat-primary dd {
+      font-size: 2.8rem;
+    }
+  }
+</style>

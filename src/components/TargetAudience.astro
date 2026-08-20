@@ -23,36 +23,48 @@ const signals = [
 ];
 ---
 
-<section id="clientes" class="section-pad border-t border-border bg-canvas">
+<section id="clientes" class="section-pad section-pad-compact border-t border-border bg-surface">
   <div class="container-nexo">
-    <div class="reveal grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20" style="--index: 0">
+    <div class="reveal grid gap-7 lg:grid-cols-[1fr_0.92fr] lg:items-end lg:gap-16" style="--index: 0">
       <div>
-        <p class="eyebrow">Cuándo intervenir</p>
-        <h2 class="heading-display mt-4 text-4xl font-medium sm:text-5xl lg:text-[3.6rem]">
+        <h2 class="heading-display text-4xl font-medium sm:text-5xl lg:text-[3.45rem]">
           El problema aparece antes que el nuevo sistema.
         </h2>
       </div>
-      <p class="max-w-xl text-lg leading-relaxed text-muted lg:justify-self-end">
-        Trabajamos con dirección, operaciones, administración y finanzas cuando el crecimiento
-        empieza a exponer procesos manuales, información dispersa o falta de trazabilidad.
+      <p class="max-w-lg text-lg leading-relaxed text-muted lg:justify-self-end">
+        Trabajamos con dirección, operaciones, administración y finanzas de PyMEs en crecimiento,
+        empresas medianas y operaciones reguladas. Intervenimos cuando el crecimiento expone
+        procesos manuales, información dispersa o falta de trazabilidad.
       </p>
     </div>
 
-    <ol class="mt-14 divide-y divide-border border-y border-border">
+    <ol class="mt-8 grid border-t border-border sm:mt-10 md:grid-cols-[1.05fr_0.95fr] md:grid-rows-[repeat(3,minmax(7.5rem,1fr))] lg:mt-12">
       {
         signals.map((signal, i) => (
-          <li class="reveal grid gap-4 py-6 sm:grid-cols-[4rem_0.8fr_1.2fr] sm:items-center sm:gap-8 lg:py-8" style={`--index: ${i + 1}`}>
+          <li
+            class={`reveal flex flex-col border-b border-border ${
+              i === 0
+                ? 'min-h-[11rem] bg-canvas-alt p-5 text-ink sm:min-h-[14rem] sm:p-7 md:row-span-3 md:min-h-0 md:p-9'
+                : 'grid grid-cols-[2.25rem_minmax(0,1fr)] content-start gap-x-3 bg-surface p-4 sm:min-h-[10rem] sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4 sm:p-6 md:min-h-0 md:border-l md:px-7 md:py-5'
+            }`}
+            style={`--index: ${i + 1}`}
+          >
             <span class="font-mono text-xs text-blue">{signal.number}</span>
-            <h3 class="text-lg font-semibold tracking-[-0.02em] text-ink sm:text-xl">{signal.title}</h3>
-            <p class="max-w-xl text-sm leading-relaxed text-muted">{signal.description}</p>
+            <h3
+              class={`leading-[1.08] ${
+                i === 0
+                  ? 'mt-5 max-w-md text-[1.6rem] font-semibold tracking-[-0.035em] text-ink sm:mt-7 sm:text-3xl lg:text-[2.35rem]'
+                  : 'col-start-2 max-w-lg text-[1.05rem] font-semibold tracking-[-0.025em] text-ink sm:text-xl'
+              }`}
+            >
+              {signal.title}
+            </h3>
+            <p class={`max-w-md leading-relaxed ${i === 0 ? 'mt-auto pt-3 text-[0.88rem] text-muted sm:pt-5 sm:text-[0.95rem]' : 'col-start-2 mt-1.5 text-[0.82rem] text-muted sm:mt-2 sm:text-sm'}`}>
+              {signal.description}
+            </p>
           </li>
         ))
       }
     </ol>
-
-    <div class="reveal mt-8 flex flex-wrap items-center justify-between gap-4" style="--index: 5">
-      <p class="text-sm text-muted">PyMEs en crecimiento, empresas medianas y operaciones reguladas.</p>
-      <a href="#contacto" class="text-sm font-semibold text-blue hover:underline">Mostrar un proceso <span aria-hidden="true">↗</span></a>
-    </div>
   </div>
 </section>
