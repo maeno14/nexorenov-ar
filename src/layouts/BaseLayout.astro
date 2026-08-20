@@ -47,12 +47,14 @@ const ogImageUrl = new URL(ogImage, site.url).href;
     <script is:inline>
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('reveal-ready');
-        window.setTimeout(() => {
-          document.documentElement.classList.remove('reveal-ready');
-          document.documentElement.classList.add('reveal-complete');
-        }, 2200);
       }
     </script>
+
+    <noscript>
+      <style>
+        .reveal { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

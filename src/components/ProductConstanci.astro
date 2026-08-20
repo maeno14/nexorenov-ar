@@ -1,123 +1,104 @@
 ---
 import { site, productExternalUrl } from '../config/site';
+
+const flow = [
+  {
+    step: '01',
+    title: 'Subir el Excel',
+    description: 'Una lista de CUITs en el formato de la plantilla.',
+  },
+  {
+    step: '02',
+    title: 'Procesar el lote',
+    description: 'Cada constancia se consulta en AFIP sin cargar los CUITs de a uno.',
+  },
+  {
+    step: '03',
+    title: 'Descargar los resultados',
+    description: 'Los PDFs oficiales quedan agrupados en un ZIP y el historial conserva el detalle.',
+  },
+];
 ---
 
 <section id="productos" class="section-pad border-t border-border bg-surface">
   <div class="container-nexo">
-    <div class="reveal grid gap-8 lg:grid-cols-[1fr_0.7fr] lg:items-end lg:gap-20" style="--index: 0">
+    <div class="reveal grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-20" style="--index: 0">
       <div>
-        <p class="eyebrow">Producto en operación</p>
+        <p class="eyebrow">Producto propio</p>
         <h2 class="heading-display mt-4 max-w-3xl text-4xl font-medium sm:text-5xl lg:text-[3.8rem]">
-          Construir también nos obliga a resolver el detalle.
+          Un problema administrativo convertido en producto.
         </h2>
       </div>
       <p class="max-w-lg text-lg leading-relaxed text-muted lg:justify-self-end">
-        {site.product.name} nació de un proceso administrativo concreto: descargar muchas
-        constancias sin cargar cada CUIT de forma manual.
+        {site.product.name} resuelve una tarea concreta: obtener constancias AFIP en lote a
+        partir de un Excel y entregarlas listas para descargar.
       </p>
     </div>
 
-    <article class="reveal mt-14 overflow-hidden rounded-[1.75rem] border border-border bg-canvas shadow-[0_24px_80px_rgba(17,24,32,0.08)]" style="--index: 1">
-      <div class="grid lg:grid-cols-[0.78fr_1.22fr]">
-        <div class="flex flex-col justify-between border-b border-border p-7 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
+    <article class="product-case reveal mt-14 border-y border-border" style="--index: 1">
+      <div class="grid lg:grid-cols-[0.72fr_1.28fr]">
+        <div class="flex flex-col justify-between border-b border-border py-9 lg:border-b-0 lg:border-r lg:py-12 lg:pr-14">
           <div>
-            <span class="tag tag-green">Producto propio</span>
-            <h3 class="mt-6 text-4xl font-semibold tracking-[-0.05em] text-ink sm:text-5xl">{site.product.name}</h3>
+            <p class="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-blue">Caso 001</p>
+            <h3 class="mt-4 text-4xl font-semibold tracking-[-0.05em] text-ink sm:text-5xl">{site.product.name}</h3>
             <p class="mt-5 max-w-md text-lg leading-relaxed text-muted">
-              Subís un Excel, procesás el lote y descargás las constancias oficiales agrupadas
-              en un archivo ZIP.
+              Lo construimos para estudios contables y equipos que trabajan con lotes de CUITs.
             </p>
-
-            <ul class="mt-8 space-y-3" aria-label="Características principales">
-              <li class="flex items-center gap-3 text-sm text-ink">
-                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-soft text-xs font-bold text-blue" aria-hidden="true">✓</span>
-                Carga masiva desde Excel
-              </li>
-              <li class="flex items-center gap-3 text-sm text-ink">
-                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-soft text-xs font-bold text-blue" aria-hidden="true">✓</span>
-                PDF oficial de AFIP
-              </li>
-              <li class="flex items-center gap-3 text-sm text-ink">
-                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-blue-soft text-xs font-bold text-blue" aria-hidden="true">✓</span>
-                Operación 100% web y sin clave fiscal
-              </li>
-            </ul>
           </div>
 
-          <a
-            href={productExternalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary mt-10 w-fit"
-          >
-            Conocer {site.product.name}
-            <span aria-hidden="true">↗</span>
-          </a>
+          <div class="mt-10">
+            <dl class="grid gap-4 border-l-2 border-blue pl-5 text-sm">
+              <div>
+                <dt class="font-mono text-[0.6rem] uppercase tracking-[0.11em] text-muted">Entrada</dt>
+                <dd class="mt-1 font-medium text-ink">Excel con CUITs</dd>
+              </div>
+              <div>
+                <dt class="font-mono text-[0.6rem] uppercase tracking-[0.11em] text-muted">Salida</dt>
+                <dd class="mt-1 font-medium text-ink">PDFs oficiales dentro de un ZIP</dd>
+              </div>
+            </dl>
+
+            <a
+              href={productExternalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary mt-9 w-fit"
+            >
+              Abrir {site.product.name}
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
 
-        <div class="bg-blue-soft p-4 sm:p-7 lg:p-10">
-          <div class="overflow-hidden rounded-2xl border border-white/10 bg-night text-white shadow-[0_24px_70px_rgba(13,21,28,0.22)]">
-            <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
-              <div class="flex items-center gap-2" aria-hidden="true">
-                <span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-white/15"></span>
-                <span class="h-2.5 w-2.5 rounded-full bg-lime"></span>
-              </div>
-              <p class="font-mono text-[0.58rem] uppercase tracking-[0.14em] text-white/65">Vista ilustrativa del producto</p>
-            </div>
-
-            <div class="p-5 sm:p-7">
-              <div class="flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <p class="font-mono text-[0.64rem] uppercase tracking-[0.13em] text-lime">Lote activo</p>
-                  <h4 class="mt-2 text-xl font-semibold tracking-[-0.03em]">lote_cuits.xlsx</h4>
-                </div>
-                <span class="rounded-full border border-blue/50 bg-blue/20 px-3 py-1.5 text-xs text-white/80">En curso</span>
-              </div>
-
-              <div class="mt-7 rounded-2xl border border-white/10 bg-white/[0.045] p-5">
-                <div class="flex items-end justify-between gap-4">
-                  <div>
-                    <p class="text-xs text-white/65">Constancias procesadas</p>
-                    <p class="mt-1 text-3xl font-semibold tracking-[-0.04em]">847 <span class="text-base font-normal text-white/60">/ 1.000</span></p>
-                  </div>
-                  <span class="font-mono text-xs text-lime">84,7%</span>
-                </div>
-                <div class="mt-4 h-2 overflow-hidden rounded-full bg-white/10">
-                  <div class="h-full w-[84.7%] rounded-full bg-lime"></div>
-                </div>
-              </div>
-
-              <div class="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
-                <div class="rounded-xl border border-white/10 bg-white/[0.035] p-3 sm:p-4">
-                  <p class="font-mono text-[0.58rem] uppercase tracking-[0.1em] text-white/60">Exitosas</p>
-                  <p class="mt-2 text-lg font-semibold sm:text-xl">812</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-white/[0.035] p-3 sm:p-4">
-                  <p class="font-mono text-[0.58rem] uppercase tracking-[0.1em] text-white/60">Pendientes</p>
-                  <p class="mt-2 text-lg font-semibold sm:text-xl">153</p>
-                </div>
-                <div class="rounded-xl border border-white/10 bg-white/[0.035] p-3 sm:p-4">
-                  <p class="font-mono text-[0.58rem] uppercase tracking-[0.1em] text-white/60">Errores</p>
-                  <p class="mt-2 text-lg font-semibold sm:text-xl">35</p>
-                </div>
-              </div>
-
-              <div class="mt-4 flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.035] p-4">
-                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue text-sm" aria-hidden="true">↓</span>
-                <div>
-                  <p class="text-sm font-medium">ZIP listo al finalizar</p>
-                  <p class="mt-0.5 text-xs text-white/60">Todos los documentos en una descarga</p>
-                </div>
-              </div>
-            </div>
+        <div class="py-9 lg:py-12 lg:pl-14">
+          <div class="flex items-center justify-between gap-5 border-b border-border pb-5">
+            <p class="font-mono text-[0.66rem] uppercase tracking-[0.12em] text-muted">Cómo funciona</p>
+            <p class="text-xs text-muted">100% web · sin clave fiscal</p>
           </div>
 
-          <ol class="mt-5 grid gap-2 sm:grid-cols-3" aria-label="Flujo de constanci.ar">
-            <li class="rounded-xl bg-white/65 p-3 text-xs font-medium text-ink"><span class="mr-2 font-mono text-blue">01</span> Subir Excel</li>
-            <li class="rounded-xl bg-white/65 p-3 text-xs font-medium text-ink"><span class="mr-2 font-mono text-blue">02</span> Procesar lote</li>
-            <li class="rounded-xl bg-white/65 p-3 text-xs font-medium text-ink"><span class="mr-2 font-mono text-blue">03</span> Descargar ZIP</li>
-          </ol>
+          <div class="product-flow relative">
+            <span class="product-flow-line absolute bottom-10 left-[1.15rem] top-10 w-px origin-top bg-blue" aria-hidden="true"></span>
+            <ol>
+              {
+                flow.map((item, i) => (
+                  <li class="product-flow-step relative grid grid-cols-[2.4rem_1fr] gap-5 border-b border-border py-7 last:border-b-0" style={`--flow-index: ${i}`}>
+                    <span class="product-flow-node relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue/30 bg-surface font-mono text-[0.64rem] text-blue">
+                      {item.step}
+                    </span>
+                    <div>
+                      <h4 class="text-xl font-semibold tracking-[-0.025em] text-ink">{item.title}</h4>
+                      <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted">{item.description}</p>
+                    </div>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+
+          <p class="mt-5 max-w-2xl text-sm leading-relaxed text-muted">
+            Los CUITs inválidos quedan informados en el historial. El equipo puede revisar el
+            resultado antes de volver a procesar.
+          </p>
         </div>
       </div>
     </article>

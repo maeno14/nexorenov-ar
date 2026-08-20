@@ -1,9 +1,28 @@
 function initReveal(): void {
-  const elements = document.querySelectorAll<HTMLElement>('.reveal');
+  const elements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
   if (elements.length === 0) return;
 
+  const pending = new Set(elements);
+
+  const reveal = (element: HTMLElement): void => {
+    element.classList.add('is-visible');
+    pending.delete(element);
+  };
+
+  const revealInViewport = (): void => {
+    for (const element of pending) {
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 40 && rect.bottom > 0) reveal(element);
+    }
+
+    if (pending.size === 0) {
+      window.removeEventListener('scroll', revealInViewport);
+      window.removeEventListener('resize', revealInViewport);
+    }
+  };
+
   if (!('IntersectionObserver' in window)) {
-    for (const el of elements) el.classList.add('is-visible');
+    for (const element of elements) reveal(element);
     return;
   }
 
@@ -11,7 +30,7 @@ function initReveal(): void {
     (entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          reveal(entry.target as HTMLElement);
           observer.unobserve(entry.target);
         }
       }
@@ -19,14 +38,17 @@ function initReveal(): void {
     { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
   );
 
-  for (const el of elements) {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 40 && rect.bottom > 0) {
-      el.classList.add('is-visible');
-    } else {
-      observer.observe(el);
-    }
+  for (const element of elements) {
+    observer.observe(element);
   }
+
+  window.addEventListener('scroll', revealInViewport, { passive: true });
+  window.addEventListener('resize', revealInViewport);
+  revealInViewport();
 }
 
-initReveal();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initReveal, { once: true });
+} else {
+  initReveal();
+}

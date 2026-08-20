@@ -1,117 +1,97 @@
 ---
-import { site } from '../config/site';
+import { productExternalUrl, site } from '../config/site';
 ---
 
-<section class="relative overflow-hidden px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:px-12 lg:pb-28 lg:pt-24">
-  <div class="pointer-events-none absolute -right-40 -top-48 h-[34rem] w-[34rem] rounded-full bg-blue/10 blur-3xl" aria-hidden="true"></div>
-
+<section class="relative overflow-hidden border-b border-border px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:px-12 lg:pb-28 lg:pt-24">
   <div class="container-nexo">
-    <div class="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-14">
+    <div class="grid gap-14 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:gap-20">
       <div class="reveal relative z-10" style="--index: 0">
-        <div class="flex items-center gap-3">
-          <span class="h-2 w-2 rounded-full bg-blue" aria-hidden="true"></span>
-          <p class="eyebrow">Consultoría de software para operaciones B2B</p>
-        </div>
+        <p class="eyebrow">Software para operaciones administrativas</p>
 
-        <h1 class="heading-display mt-7 max-w-4xl text-[clamp(3.25rem,6vw,5.8rem)] font-medium">
-          Procesos claros. <span class="text-blue">Sistemas que trabajan.</span>
+        <h1 class="heading-display mt-7 max-w-4xl text-[clamp(3.25rem,6vw,5.75rem)] font-medium">
+          Si el proceso vive entre Excel, mails y un ERP, <span class="text-blue">ahí trabajamos.</span>
         </h1>
 
         <p class="mt-7 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
-          {site.name} transforma tareas administrativas sostenidas por planillas, mails y
-          sistemas aislados en operaciones conectadas, trazables y listas para crecer.
+          {site.name} releva el trabajo real, conecta las herramientas que ya usa el equipo y
+          construye lo que falta. Sin empezar por una plataforma ni forzar IA donde no aporta.
         </p>
 
         <div class="mt-9 flex flex-wrap gap-3">
           <a href="#contacto" class="btn-primary">
-            Contanos tu proceso
-            <span aria-hidden="true">↗</span>
+            Revisar un proceso
+            <span class="btn-arrow" aria-hidden="true">↗</span>
           </a>
           <a href="#productos" class="btn-secondary">
-            Ver un producto real
-            <span aria-hidden="true">↓</span>
+            Ver el caso constanci.ar
+            <span class="btn-arrow btn-arrow-down" aria-hidden="true">↓</span>
           </a>
         </div>
 
-        <dl class="mt-12 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
-          <div class="bg-surface p-4">
-            <dt class="eyebrow">01</dt>
-            <dd class="mt-2 text-sm font-medium text-ink">Diagnóstico</dd>
-          </div>
-          <div class="bg-surface p-4">
-            <dt class="eyebrow">02</dt>
-            <dd class="mt-2 text-sm font-medium text-ink">Integración</dd>
-          </div>
-          <div class="bg-surface p-4">
-            <dt class="eyebrow">03</dt>
-            <dd class="mt-2 text-sm font-medium text-ink">Implementación</dd>
-          </div>
-          <div class="bg-surface p-4">
-            <dt class="eyebrow">04</dt>
-            <dd class="mt-2 text-sm font-medium text-ink">Adopción</dd>
-          </div>
-        </dl>
+        <div class="mt-12 max-w-2xl border-l-2 border-blue pl-5">
+          <p class="font-mono text-[0.64rem] uppercase tracking-[0.12em] text-muted">Qué cambia</p>
+          <p class="mt-2 max-w-xl text-sm leading-relaxed text-ink sm:text-base">
+            La información deja de copiarse entre herramientas, cada estado tiene un responsable
+            y el equipo puede reconstruir qué pasó.
+          </p>
+        </div>
       </div>
 
-      <div class="reveal relative mx-auto w-full max-w-[36rem] lg:mx-0 lg:mt-8" style="--index: 2">
-        <div class="absolute -inset-3 rotate-2 rounded-[2rem] border border-blue/15 bg-blue/5" aria-hidden="true"></div>
-        <div class="surface-grid relative overflow-hidden rounded-[1.7rem] border border-white/10 bg-night p-4 text-white shadow-[0_30px_90px_rgba(13,21,28,0.25)] sm:p-6">
-          <div class="flex items-center justify-between border-b border-white/10 pb-4">
-            <div class="flex items-center gap-2" aria-hidden="true">
-              <span class="h-2.5 w-2.5 rounded-full bg-white/20"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-white/20"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-lime"></span>
+      <figure class="hero-flow reveal relative mx-auto w-full max-w-[35rem]" style="--index: 1">
+        <div class="border border-border bg-surface p-5 shadow-[14px_14px_0_var(--color-blue-soft)] sm:p-7">
+          <figcaption class="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
+            <span class="font-mono text-[0.64rem] uppercase tracking-[0.13em] text-muted">Un caso propio</span>
+            <a
+              href={productExternalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-semibold text-blue hover:underline"
+            >
+              constanci.ar <span aria-hidden="true">↗</span>
+            </a>
+          </figcaption>
+
+          <div class="flow-file mt-6 flex items-center gap-4 border border-border bg-canvas p-4">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center bg-blue font-mono text-xs font-medium text-white">XLS</span>
+            <div class="min-w-0 flex-1">
+              <p class="truncate text-sm font-semibold text-ink">lote_cuits.xlsx</p>
+              <p class="mt-0.5 text-xs text-muted">Una lista, sin cargar cada CUIT por separado</p>
             </div>
-            <span class="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-white/65">Representación del proceso</span>
           </div>
 
-          <div class="py-6">
-            <p class="font-mono text-[0.68rem] uppercase tracking-[0.13em] text-lime">Flujo administrativo</p>
-            <h2 class="mt-2 text-xl font-medium tracking-[-0.02em] sm:text-2xl">Constancias en lote</h2>
-
-            <div class="mt-6 rounded-2xl border border-white/10 bg-white/[0.045] p-4">
-              <div class="flex items-center gap-3">
-                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue text-xs font-semibold">XLS</div>
-                <div class="min-w-0 flex-1">
-                  <p class="truncate text-sm font-medium">lote_cuits.xlsx</p>
-                  <p class="mt-0.5 text-xs text-white/65">Archivo recibido</p>
-                </div>
-                <span class="tag tag-dark">Listo</span>
-              </div>
-            </div>
-
-            <ol class="relative mt-5 space-y-2 before:absolute before:bottom-5 before:left-[1.18rem] before:top-5 before:w-px before:bg-white/12">
-              <li class="relative flex items-center gap-3 rounded-xl bg-white/[0.035] p-3">
-                <span class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lime text-sm font-bold text-night">✓</span>
-                <div class="flex-1">
-                  <p class="text-sm font-medium">Validar la información</p>
-                  <p class="text-xs text-white/65">Formato y CUIT revisados</p>
+          <div class="relative mt-6 pl-2">
+            <span class="flow-rail absolute bottom-7 left-[1.35rem] top-7 w-px origin-top bg-blue" aria-hidden="true"></span>
+            <ol class="space-y-1">
+              <li class="flow-step relative grid grid-cols-[2.25rem_1fr] gap-4 py-3" style="--flow-index: 0">
+                <span class="flow-node relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue/30 bg-surface font-mono text-[0.65rem] text-blue">01</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink">Leer la planilla</p>
+                  <p class="mt-1 text-xs leading-relaxed text-muted">Detectar CUITs y errores de formato.</p>
                 </div>
               </li>
-              <li class="relative flex items-center gap-3 rounded-xl border border-blue/40 bg-blue/15 p-3">
-                <span class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue text-sm font-bold text-white">02</span>
-                <div class="flex-1">
-                  <p class="text-sm font-medium">Procesar el lote</p>
-                  <p class="text-xs text-white/70">Consulta en curso</p>
+              <li class="flow-step relative grid grid-cols-[2.25rem_1fr] gap-4 py-3" style="--flow-index: 1">
+                <span class="flow-node relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue/30 bg-surface font-mono text-[0.65rem] text-blue">02</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink">Consultar AFIP</p>
+                  <p class="mt-1 text-xs leading-relaxed text-muted">Obtener cada constancia pública en PDF.</p>
                 </div>
-                <span class="h-2 w-2 animate-pulse rounded-full bg-lime" aria-hidden="true"></span>
               </li>
-              <li class="relative flex items-center gap-3 rounded-xl bg-white/[0.035] p-3">
-                <span class="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-night-soft text-xs text-white/65">03</span>
-                <div class="flex-1">
-                  <p class="text-sm font-medium text-white/80">Entregar los documentos</p>
-                  <p class="text-xs text-white/60">PDFs agrupados en un ZIP</p>
+              <li class="flow-step relative grid grid-cols-[2.25rem_1fr] gap-4 py-3" style="--flow-index: 2">
+                <span class="flow-node relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-blue/30 bg-surface font-mono text-[0.65rem] text-blue">03</span>
+                <div>
+                  <p class="text-sm font-semibold text-ink">Preparar la entrega</p>
+                  <p class="mt-1 text-xs leading-relaxed text-muted">Ordenar los documentos dentro de un ZIP.</p>
                 </div>
               </li>
             </ol>
           </div>
 
-          <div class="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4 text-xs text-white/65">
-            <span>Producto propio: constanci.ar</span>
-            <span class="flex items-center gap-2 text-white/70"><span class="h-1.5 w-1.5 rounded-full bg-lime"></span> Web operativa</span>
+          <div class="mt-5 flex items-center justify-between gap-4 border-t border-border pt-4 text-xs text-muted">
+            <span>Sin instalar software</span>
+            <span>Sin clave fiscal</span>
           </div>
         </div>
-      </div>
+      </figure>
     </div>
   </div>
 </section>
